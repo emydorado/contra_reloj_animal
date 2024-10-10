@@ -1,9 +1,14 @@
-import renderScreen1 from './screens/screen1.js';
-import renderScreen2 from './screens/screen2.js';
+import renderAdScreen from './Screens/ad_screen.js';
+import renderAnimalData from './screens/animal_data.js';
+import renderInstructions from './screens/instructions.js';
+import renderSelectAnimal from './screens/select_animal.js';
+import renderStartGame from './screens/start_game.js';
+import renderTimer from './screens/timer.js';
+import renderLoser from './screens/loser.js';
+import renderWinner from './screens/winner.js';
 import socket from './socket.js';
 
 const router = new Router({
-	// check this for more features with Router: https://github.com/Graidenix/vanilla-router
 	mode: 'hash',
 	page404: (path) => {
 		const app = document.getElementById('app');
@@ -15,14 +20,44 @@ function clearScripts() {
 	document.getElementById('app').innerHTML = '';
 }
 
-router.add('/', async () => {
+router.add('/adScreen', async () => {
 	clearScripts();
-	renderScreen1();
+	renderAdScreen();
 });
 
-router.add('/screen2', async () => {
+router.add('/animalData', async () => {
 	clearScripts();
-	renderScreen2();
+	renderAnimalData();
+});
+
+router.add('/instructions', async () => {
+	clearScripts();
+	renderInstructions();
+});
+
+router.add('/selectAnimal', async () => {
+	clearScripts();
+	renderSelectAnimal();
+});
+
+router.add('/startGame', async () => {
+	clearScripts();
+	renderStartGame();
+});
+
+router.add('/timer', async () => {
+	clearScripts();
+	renderTimer();
+});
+
+router.add('/loser', async () => {
+	clearScripts();
+	renderLoser();
+});
+
+router.add('/winner', async () => {
+	clearScripts();
+	renderWinner();
 });
 
 router.check().addUriListener();

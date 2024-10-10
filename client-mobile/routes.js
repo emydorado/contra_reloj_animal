@@ -1,6 +1,10 @@
-import renderScreen1 from './screens/screen1.js';
-import renderScreen2 from './screens/screen2.js';
-import renderScreen3 from './screens/screen3.js';
+import renderConfirmSelection from './Screens/confirm_selection.js';
+import renderUserData from './screens/user_data.js';
+import renderSelectAnimal from './screens/select_animal.js';
+import renderStartGame from './screens/start_game.js';
+import renderTimer from './screens/timer.js';
+import renderLoser from './screens/loser.js';
+import renderWinner from './screens/winner.js';
 import socket from './socket.js';
 
 const router = new Router({
@@ -16,19 +20,44 @@ function clearScripts() {
 	document.getElementById('app').innerHTML = '';
 }
 
-router.add('/', async () => {
+router.add('/confirmSelection', async () => {
 	clearScripts();
-	renderScreen1();
+	renderConfirmSelection();
 });
 
-router.add('/screen2', async () => {
+router.add('/startGame', async () => {
 	clearScripts();
-	renderScreen2();
+	renderStartGame();
 });
 
-router.add('/screen3', async () => {
+router.add('/userData', async () => {
 	clearScripts();
-	renderScreen3();
+	renderUserData();
+});
+
+router.add('/selectAnimal', async () => {
+	clearScripts();
+	renderSelectAnimal();
+});
+
+router.add('/startGame', async () => {
+	clearScripts();
+	renderStartGame();
+});
+
+router.add('/timer', async () => {
+	clearScripts();
+	renderTimer();
+});
+
+router.add('/loser', async () => {
+	clearScripts();
+	renderLoser();
+});
+
+router.add('/winner', async () => {
+	clearScripts();
+	renderWinner();
 });
 
 router.check().addUriListener();
