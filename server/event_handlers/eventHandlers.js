@@ -1,21 +1,59 @@
-// eventsExampleHandlers.js
+const { assignroles } = require('../utils/helpers');
 
-const { utilFuntion1, utilFuntion2 } = require('../utils/helpers');
-
-// Assuming db and io are required or passed in some way to be accessible
-const event1Handler = (socket, db, io) => {
+const userConnected = (socket, db, io) => {
 	return (data) => {
-		io.emit('showSomething');
+		io.emit('userConnected', userConnected);
 	};
 };
 
-const event2Handler = (socket, db, io) => {
+const selectedAnimal = (socket, db, io) => {
 	return (data) => {
-		io.emit('returnScreen1', { message: 'ok' });
+		io.emit('selectedAnimal', selectedAnimal);
 	};
 };
 
+const confirmation = (socket, db, io) => {
+	return (data) => {
+		io.emit('confirmation', confirmation);
+	};
+};
+
+const userRegistered = (socket, db, io) => {
+	return (data) => {
+		io.emit('userRegistered', userRegistered);
+	};
+};
+
+const userCrossedSecondLine = (socket, db, io) => {
+	return (data) => {
+		io.emit('userCrossedSecondLine', userCrossedSecondLine);
+	};
+};
+
+const userTime = (socket, db, io) => {
+	return (data) => {
+		io.emit('userTime', userTime);
+	};
+};
+
+const userWins = (socket, db, io) => {
+	return (data) => {
+		io.emit('userWins', userWins);
+	};
+};
+
+const animalWins = (socket, db, io) => {
+	return (data) => {
+		io.emit('animalWins', animalWins);
+	};
+};
 module.exports = {
-	event1Handler,
-	event2Handler,
+	userConnected,
+	selectedAnimal,
+	confirmation,
+	userRegistered,
+	userCrossedSecondLine,
+	userTime,
+	userWins,
+	animalWins,
 };

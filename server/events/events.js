@@ -1,9 +1,22 @@
 const db = require('../db');
-const { event1Handler, event2Handler } = require('../events-handlers/eventsExampleHandlers');
+const eventHandler = require('../event_handlers/eventHandlers');
 
-const exampleEvent = (socket, io) => {
-	socket.on('event1', event1Handler(socket, db, io));
-	socket.on('event2', event2Handler(socket, db, io));
+const events = (socket, io) => {
+	socket.on('userConnected', eventHandler.userConnected(db, socket, io));
+
+	socket.on('selectedAnimal', eventHandler.selectedAnimal(db, socket, io));
+
+	socket.on('confirmation', eventHandler.confirmation(db, socket, io));
+
+	socket.on('userRegistered', eventHandler.userRegistered(db, socket, io));
+
+	socket.on('userCrossedSecondLine', eventHandler.userCrossedSecondLine(db, socket, io));
+
+	socket.on('userTime', eventHandler.userTime(db, socket, io));
+
+	socket.on('userWins', eventHandler.userWins(db, socket, io));
+
+	socket.on('animalWins', eventHandler.animalWins(db, socket, io));
 };
 
-module.exports = { exampleEvent };
+module.exports = { events };

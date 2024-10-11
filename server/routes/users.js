@@ -4,7 +4,11 @@ const router = express.Router();
 
 // Define routes and link them to controller methods
 router.get('/users', usersController.getUsers);
-router.post('/users', usersController.createUsers);
-// router.post('/another-endpoint-example', endpointController.controllerFunction);
+router.get('/userTime', usersController.getUsers);
+router.post('/onSelectedAnimal', usersController.createUsers);
+router.post('/onConfirmation', usersController.createUsers);
+router.post('/onUserData', usersController.createUsers);
+router.post('/crossedFirstLine', usersController.createUsers);
+router.post('/crossedSecondLine', usersController.createUsers);
 
 module.exports = router;
