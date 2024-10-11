@@ -10,10 +10,6 @@ const events = (socket, io) => {
 
 	socket.on('userRegistered', eventHandler.userRegistered(db, socket, io));
 
-	socket.on('userCrossedFirstLine', eventHandler.userCrossedFirstLine(db, socket, io));
-
-	socket.on('userCrossedSecondLine', eventHandler.userCrossedSecondLine(db, socket, io));
-
 	socket.on('userTime', eventHandler.userTime(db, socket, io));
 
 	socket.on('userWins', eventHandler.userWins(db, socket, io));
