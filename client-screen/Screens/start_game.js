@@ -1,13 +1,12 @@
 import { router, socket } from '../routes';
 
-export default function renderScreen1() {
+export default function renderStartGame() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Screen 6</h1>
-        <p>This is the Screen 6</p>
+        <h1>start game</h1>
     `;
 
-	socket.on('showSomething', (data) => {
-		router.navigateTo('/');
+	socket.on('userRegistered', (data) => {
+		console.log('User Registered ready to start:', data);
 	});
 }

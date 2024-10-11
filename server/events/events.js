@@ -10,6 +10,8 @@ const events = (socket, io) => {
 
 	socket.on('userRegistered', eventHandler.userRegistered(db, socket, io));
 
+	socket.on('userCrossedFirstLine', eventHandler.userCrossedFirstLine(db, socket, io));
+
 	socket.on('userCrossedSecondLine', eventHandler.userCrossedSecondLine(db, socket, io));
 
 	socket.on('userTime', eventHandler.userTime(db, socket, io));
@@ -17,6 +19,8 @@ const events = (socket, io) => {
 	socket.on('userWins', eventHandler.userWins(db, socket, io));
 
 	socket.on('animalWins', eventHandler.animalWins(db, socket, io));
+
+	socket.on('startGame', eventHandler.startGame(db, socket, io));
 };
 
 module.exports = { events };

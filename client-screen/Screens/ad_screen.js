@@ -1,13 +1,12 @@
 import { router, socket } from '../routes';
 
-export default function renderScreen1() {
+export default function renderAdScreen() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Screen 1</h1>
-        <p>This is the Screen 1</p>
+        <h1>Ad Screen</h1>
     `;
 
-	socket.on('showSomething', (data) => {
-		router.navigateTo('/');
+	socket.on('userConnected', (data) => {
+		console.log('User is connected:', data);
 	});
 }

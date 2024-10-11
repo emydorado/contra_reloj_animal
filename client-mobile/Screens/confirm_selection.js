@@ -1,13 +1,14 @@
 import { router, socket } from '../routes';
 
-export default function renderScreen1() {
+export default function renderConfirmSelection() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Screen 1</h1>
-        <p>This is the Screen 1</p>
+        <h1>Confirm selecton</h1>
+				<button id="confirmationBtn">Send Confirmation</button>
+
     `;
 
-	socket.on('showSomething', (data) => {
-		router.navigateTo('/');
+	document.getElementById('confirmationBtn').addEventListener('click', () => {
+		socket.emit('confirmation', { message: 'Button clicked!' });
 	});
 }

@@ -1,13 +1,12 @@
 import { router, socket } from '../routes';
 
-export default function renderScreen1() {
+export default function renderTimer() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Screen 7</h1>
-        <p>This is the Screen 7</p>
+        <h1>timer</h1>
     `;
 
-	socket.on('showSomething', (data) => {
-		router.navigateTo('/');
+	socket.on('userCrossedFirstLine', (data) => {
+		console.log('User crossed the first line:', data);
 	});
 }

@@ -1,13 +1,13 @@
 import { router, socket } from '../routes';
 
-export default function renderScreen1() {
+export default function renderUserData() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Screen 1</h1>
-        <p>This is the Screen 1</p>
+        <h1>form user data</h1>
+				<button id="sendForm">SendForm</button>
     `;
 
-	socket.on('showSomething', (data) => {
-		router.navigateTo('/');
+	document.getElementById('sendForm').addEventListener('click', () => {
+		socket.emit('userRegistered', { message: 'user Registered!' });
 	});
 }

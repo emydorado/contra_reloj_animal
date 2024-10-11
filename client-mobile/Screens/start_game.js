@@ -1,13 +1,13 @@
 import { router, socket } from '../routes';
 
-export default function renderScreen1() {
+export default function renderStartGame() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Screen 1</h1>
-        <p>This is the Screen 1</p>
+        <h1>Start game</h1>
+				<button id="StartGame">Start game</button>
     `;
 
-	socket.on('showSomething', (data) => {
-		router.navigateTo('/');
+	document.getElementById('StartGame').addEventListener('click', () => {
+		socket.emit('startGame', { message: 'game started!' });
 	});
 }

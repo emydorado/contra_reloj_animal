@@ -33,4 +33,4 @@ const crossedSecondLine = async (req, res) => {
 	response.status(201).send(body);
 };
 
-module.exports = { getUsers, createUsers };
+module.exports = { crossedSecondLine, crossedFirstLine, onUserData, onSelectedAnimal, onConfirmation, userTime, users };

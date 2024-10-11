@@ -1,13 +1,13 @@
 import { router, socket } from '../routes';
 
-export default function renderScreen1() {
+export default function renderSelectAnimal() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Screen 1</h1>
-        <p>This is the Screen 1</p>
+        <h1>select animal</h1>
+				<button id="selectAnimal">Select animal</button>
     `;
 
-	socket.on('showSomething', (data) => {
-		router.navigateTo('/');
+	document.getElementById('selectAnimal').addEventListener('click', () => {
+		socket.emit('selectedAnimal', { message: 'animal selected!' });
 	});
 }

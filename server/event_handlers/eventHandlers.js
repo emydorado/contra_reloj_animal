@@ -18,6 +18,12 @@ const confirmation = (socket, db, io) => {
 	};
 };
 
+const startGame = (socket, db, io) => {
+	return (data) => {
+		io.emit('startGame', startGame);
+	};
+};
+
 const userRegistered = (socket, db, io) => {
 	return (data) => {
 		io.emit('userRegistered', userRegistered);
@@ -27,6 +33,12 @@ const userRegistered = (socket, db, io) => {
 const userCrossedSecondLine = (socket, db, io) => {
 	return (data) => {
 		io.emit('userCrossedSecondLine', userCrossedSecondLine);
+	};
+};
+
+const userCrossedFirstLine = (socket, db, io) => {
+	return (data) => {
+		io.emit('userCrossedFirstLine', userCrossedFirstLine);
 	};
 };
 
@@ -56,4 +68,6 @@ module.exports = {
 	userTime,
 	userWins,
 	animalWins,
+	startGame,
+	userCrossedFirstLine,
 };

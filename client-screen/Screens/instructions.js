@@ -1,13 +1,12 @@
 import { router, socket } from '../routes';
 
-export default function renderScreen1() {
+export default function renderInstructions() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Screen 3</h1>
-        <p>This is the Screen 3</p>
+        <h1>Instructions</h1>
     `;
 
-	socket.on('showSomething', (data) => {
-		router.navigateTo('/');
+	socket.on('confirmation', (data) => {
+		console.log('User confirmed:', data);
 	});
 }

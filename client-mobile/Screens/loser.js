@@ -1,13 +1,18 @@
 import { router, socket } from '../routes';
 
-export default function renderScreen1() {
+export default function renderLoser() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Screen 1</h1>
-        <p>This is the Screen 1</p>
+        <h1>loser</h1>
+				<button id="userLose">User lose</button>
+
     `;
 
-	socket.on('showSomething', (data) => {
-		router.navigateTo('/');
+	document.getElementById('userLose').addEventListener('click', () => {
+		socket.emit('animalWins', { message: 'user lost!' });
+	});
+
+	socket.on('userCrossedSecondLine', (data) => {
+		console.log('User crossed the second line:', data);
 	});
 }
