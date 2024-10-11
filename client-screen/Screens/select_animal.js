@@ -9,4 +9,8 @@ export default function renderSelectAnimal() {
 	socket.on('userConnected', (data) => {
 		console.log('new User Connected:', data);
 	});
+
+	socket.on('selectAnimal', (data) => {
+		router.navigateTo('/instructions');
+	});
 }

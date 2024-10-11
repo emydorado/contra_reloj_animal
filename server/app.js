@@ -6,8 +6,8 @@ app.use(express.json()); // utility to process JSON in requests
 app.use(cors()); // utility to allow clients to make requests from other hosts or ips
 const path = require('path');
 
-const clientApp1Path = path.resolve(__dirname, '../client-app1');
-const clientApp2Path = path.resolve(__dirname, '../client-app2');
+const clientApp1Path = path.resolve(__dirname, '../client-mobile');
+const clientApp2Path = path.resolve(__dirname, '../client-screen');
 app.use('/node_modules', express.static(path.join(__dirname, '../node_modules')));
 
 // Serve Client App 1
