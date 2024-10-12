@@ -1,11 +1,11 @@
 import renderAdScreen from './Screens/ad_screen.js';
-import renderAnimalData from './screens/animal_data.js';
-import renderInstructions from './screens/instructions.js';
-import renderSelectAnimal from './screens/select_animal.js';
-import renderStartGame from './screens/start_game.js';
-import renderTimer from './screens/timer.js';
-import renderLoser from './screens/loser.js';
-import renderWinner from './screens/winner.js';
+import renderAnimalData from './Screens/animal_data.js';
+import renderInstructions from './Screens/instructions.js';
+import renderSelectAnimal from './Screens/select_animal.js';
+import renderStartGame from './Screens/start_game.js';
+import renderTimer from './Screens/timer.js';
+import renderLoser from './Screens/loser.js';
+import renderWinner from './Screens/winner.js';
 import socket from './socket.js';
 
 const router = new Router({
@@ -20,7 +20,7 @@ function clearScripts() {
 	document.getElementById('app').innerHTML = '';
 }
 
-router.add('/adScreen', async () => {
+router.add('/', async () => {
 	clearScripts();
 	renderAdScreen();
 });

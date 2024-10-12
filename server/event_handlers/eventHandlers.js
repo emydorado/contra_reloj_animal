@@ -8,13 +8,13 @@ const userConnected = (socket, db, io) => {
 
 const selectedAnimal = (socket, db, io) => {
 	return (data) => {
-		io.emit('selectedAnimal', selectedAnimal);
+		io.emit('AnimalHasBeenSelected');
 	};
 };
 
 const confirmation = (socket, db, io) => {
 	return (data) => {
-		io.emit('confirmation', confirmation);
+		io.emit('confirmAnimal');
 	};
 };
 

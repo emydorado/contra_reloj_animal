@@ -20,24 +20,19 @@ function clearScripts() {
 	document.getElementById('app').innerHTML = '';
 }
 
+router.add('/', async () => {
+	clearScripts();
+	renderSelectAnimal();
+});
+
 router.add('/confirmSelection', async () => {
 	clearScripts();
 	renderConfirmSelection();
 });
 
-router.add('/startGame', async () => {
-	clearScripts();
-	renderStartGame();
-});
-
 router.add('/userData', async () => {
 	clearScripts();
 	renderUserData();
-});
-
-router.add('/selectAnimal', async () => {
-	clearScripts();
-	renderSelectAnimal();
 });
 
 router.add('/startGame', async () => {

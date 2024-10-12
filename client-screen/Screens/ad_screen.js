@@ -1,4 +1,4 @@
-import { router, socket } from '../routes';
+import { router, socket } from '../routes.js';
 
 export default function renderAdScreen() {
 	const app = document.getElementById('app');
@@ -8,5 +8,9 @@ export default function renderAdScreen() {
 
 	socket.on('userConnected', (data) => {
 		console.log('User is connected:', data);
+	});
+
+	socket.on('AnimalHasBeenSelected', (data) => {
+		router.navigateTo('/animalData');
 	});
 }

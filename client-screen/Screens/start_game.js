@@ -1,4 +1,4 @@
-import { router, socket } from '../routes';
+import { router, socket } from '../routes.js';
 
 export default function renderStartGame() {
 	const app = document.getElementById('app');

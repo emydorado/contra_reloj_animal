@@ -1,4 +1,4 @@
-import { router, socket } from '../routes';
+import { router, socket } from '../routes.js';
 
 export default function renderSelectAnimal() {
 	const app = document.getElementById('app');
@@ -10,7 +10,7 @@ export default function renderSelectAnimal() {
 		console.log('new User Connected:', data);
 	});
 
-	socket.on('selectAnimal', (data) => {
+	socket.on('selectedAnimal', () => {
 		router.navigateTo('/instructions');
 	});
 }
