@@ -29,6 +29,7 @@ export default function renderAnimalData(word) {
 	}
 
 	socket.on('confirmAnimal', (data) => {
+		localStorage.setItem('selectedAnimalId', animalId);
 		router.navigateTo('/instructions');
 	});
 }

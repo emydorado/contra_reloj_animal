@@ -11,7 +11,6 @@ export default function renderAdScreen() {
 	});
 
 	socket.on('AnimalHasBeenSelected', (animalId) => {
-		console.log(animalId);
 		router.navigateTo('/animalData/' + animalId);
 	});
 }

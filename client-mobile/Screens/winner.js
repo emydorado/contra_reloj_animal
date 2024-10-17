@@ -1,17 +1,23 @@
 import { router, socket } from '../routes.js';
 
-export default function userWins() {
+export default function renderResultsScreen() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>user wins</h1>
-				<button id="winner">i win</button>
+        <h1>Race Results</h1>
+				<p id="result">Waiting for the result...</p>
     `;
 
-	document.getElementById('winner').addEventListener('click', () => {
-		socket.emit('userWins', { message: 'user wins!' });
+	socket.on('userWins', (data) => {
+		console.log('Player won:', data);
+		document.getElementById(
+			'result'
+		).innerText = `Player wins! Player Time: ${data.playerTime}, Animal Time: ${data.animalTime}`;
 	});
 
-	socket.on('userCrossedSecondLine', (data) => {
-		console.log('User crossed the second line:', data);
+	socket.on('animalWins', (data) => {
+		console.log('Animal won:', data);
+		document.getElementById(
+			'result'
+		).innerText = `Animal wins! Player Time: ${data.playerTime}, Animal Time: ${data.animalTime}`;
 	});
 }

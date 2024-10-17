@@ -38,7 +38,7 @@ const userCrossedSecondLine = (socket, db, io) => {
 
 const userCrossedFirstLine = (socket, db, io) => {
 	return (data) => {
-		io.emit('userCrossedFirstLine', data);
+		io.emit('userCrossedFirstLine', userCrossedFirstLine);
 	};
 };
 

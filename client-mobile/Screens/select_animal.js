@@ -25,7 +25,6 @@ export default function renderSelectAnimal() {
 	buttons.addEventListener('click', (event) => {
 		if (event.target.tagName === 'BUTTON' && event.target.dataset.id) {
 			const animalId = event.target.getAttribute('data-id');
-			console.log('emitted', animalId);
 			socket.emit('selectedAnimal', animalId);
 		}
 	});

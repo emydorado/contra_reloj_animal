@@ -1,12 +1,11 @@
 import { router, socket } from '../routes.js';
 
-export default function renderTimer(word) {
-	console.log(word);
+export default function renderTimer() {
+	console.log();
 	const app = document.getElementById('app');
 	app.innerHTML = `
         <h1>timer</h1>
 				<p id="timer" style="display: none;">Time: 0 seconds</p>
-
     `;
 
 	const animals = [
@@ -18,10 +17,6 @@ export default function renderTimer(word) {
 
 	let timer;
 	let timeElapsed = 0;
-
-	const animalId = parseInt(word, 10);
-	const currentAnimal = animals.find((animal) => animal.id === animalId);
-	console.log('this is current animal:', currentAnimal);
 
 	document.getElementById('timer').style.display = 'block';
 	startTimer();

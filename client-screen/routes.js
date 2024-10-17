@@ -39,7 +39,7 @@ router.add('/startGame', async () => {
 	renderStartGame();
 });
 
-router.add('/timer/(:any)', async (word) => {
+router.add('/timer', async (word) => {
 	clearScripts();
 	renderTimer(word);
 });

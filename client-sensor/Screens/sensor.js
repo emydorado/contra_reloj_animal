@@ -23,4 +23,8 @@ export default function renderSensor() {
 	document.getElementById('btnSecondLine').addEventListener('click', () => {
 		socket.emit('userCrossedSecondLine');
 	});
+
+	document.getElementById('winner').addEventListener('click', () => {
+		socket.emit('userWins');
+	});
 }

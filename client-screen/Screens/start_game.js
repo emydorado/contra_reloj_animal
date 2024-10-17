@@ -9,8 +9,7 @@ export default function renderStartGame() {
 				<p id="timer" style="display: none;">Time: 0 seconds</p>
     `;
 
-	socket.on('userCrossedFirstLine', (animalId) => {
-		console.log(animalId);
+	socket.on('userCrossedFirstLine', (data) => {
 		router.navigateTo('/timer');
 	});
 }

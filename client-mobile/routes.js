@@ -1,6 +1,6 @@
 import renderConfirmSelection from './Screens/confirm_selection.js';
 import renderUserData from './screens/user_data.js';
-import renderSelectAnimal from './screens/select_animal.js';
+import renderSelectAnimal from './Screens/select_animal.js';
 import renderStartGame from './screens/start_game.js';
 import renderTimer from './screens/timer.js';
 import renderLoser from './screens/loser.js';
