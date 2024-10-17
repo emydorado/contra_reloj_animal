@@ -9,22 +9,6 @@ const users = async (req, res) => {
 	}
 };
 
-const userTime = async (req, res) => {
-	response.send(db);
-};
-
-const onSelectedAnimal = async (req, res) => {
-	response.status(201).send(body);
-};
-
-const onConfirmation = async (req, res) => {
-	response.status(201).send(body);
-};
-
-const onUserData = async (req, res) => {
-	response.status(201).send(body);
-};
-
 const crossedFirstLine = async (req, res) => {
 	response.status(201).send(body);
 };
@@ -33,4 +17,4 @@ const crossedSecondLine = async (req, res) => {
 	response.status(201).send(body);
 };
 
-module.exports = { crossedSecondLine, crossedFirstLine, onUserData, onSelectedAnimal, onConfirmation, userTime, users };
+module.exports = { crossedSecondLine, crossedFirstLine, users };

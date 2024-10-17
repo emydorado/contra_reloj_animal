@@ -8,6 +8,8 @@ const {
 	userWins,
 	animalWins,
 	startGame,
+	userCrossedFirstLine,
+	userCrossedSecondLine,
 } = require('../event_handlers/eventHandlers.js');
 
 const events = (socket, io) => {
@@ -26,6 +28,10 @@ const events = (socket, io) => {
 	socket.on('animalWins', animalWins(db, socket, io));
 
 	socket.on('startGame', startGame(db, socket, io));
+
+	socket.on('userCrossedSecondLine', userCrossedSecondLine(db, socket, io));
+
+	socket.on('userCrossedFirstLine', userCrossedFirstLine(db, socket, io));
 };
 
 module.exports = { events };

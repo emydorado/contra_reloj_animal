@@ -1,7 +1,6 @@
 import renderAdScreen from './Screens/ad_screen.js';
 import renderAnimalData from './Screens/animal_data.js';
 import renderInstructions from './Screens/instructions.js';
-import renderSelectAnimal from './Screens/select_animal.js';
 import renderStartGame from './Screens/start_game.js';
 import renderTimer from './Screens/timer.js';
 import renderLoser from './Screens/loser.js';
@@ -25,9 +24,9 @@ router.add('/', async () => {
 	renderAdScreen();
 });
 
-router.add('/animalData', async () => {
+router.add('/animalData/(:any)', async (word) => {
 	clearScripts();
-	renderAnimalData();
+	renderAnimalData(word);
 });
 
 router.add('/instructions', async () => {
@@ -35,19 +34,14 @@ router.add('/instructions', async () => {
 	renderInstructions();
 });
 
-router.add('/selectAnimal', async () => {
-	clearScripts();
-	renderSelectAnimal();
-});
-
 router.add('/startGame', async () => {
 	clearScripts();
 	renderStartGame();
 });
 
-router.add('/timer', async () => {
+router.add('/timer/(:any)', async (word) => {
 	clearScripts();
-	renderTimer();
+	renderTimer(word);
 });
 
 router.add('/loser', async () => {

@@ -4,15 +4,15 @@ export default function renderUserData() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
         <h1>form user data</h1>
-				<form>
+				<p>Insert your data so we can send your prize</p>
 			    <input type="text" placeholder="Name" />
 			    <input type="text" placeholder="Phone number" />
 			    <input type="text" placeholder="Email" />
-			    <button type="submit" id="sendForm">Send form</button>
-			</form>
+			    <button id="sendForm">Send form</button>
     `;
 
 	document.getElementById('sendForm').addEventListener('click', () => {
 		socket.emit('userRegistered', { message: 'user Registered!' });
+		router.navigateTo('/startGame');
 	});
 }

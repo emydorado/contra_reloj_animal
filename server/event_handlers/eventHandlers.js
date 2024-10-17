@@ -8,7 +8,7 @@ const userConnected = (socket, db, io) => {
 
 const selectedAnimal = (socket, db, io) => {
 	return (data) => {
-		io.emit('AnimalHasBeenSelected');
+		io.emit('AnimalHasBeenSelected', data);
 	};
 };
 
@@ -26,7 +26,7 @@ const startGame = (socket, db, io) => {
 
 const userRegistered = (socket, db, io) => {
 	return (data) => {
-		io.emit('userRegistered', userRegistered);
+		io.emit('userHasRegistered', userRegistered);
 	};
 };
 
@@ -38,7 +38,7 @@ const userCrossedSecondLine = (socket, db, io) => {
 
 const userCrossedFirstLine = (socket, db, io) => {
 	return (data) => {
-		io.emit('userCrossedFirstLine', userCrossedFirstLine);
+		io.emit('userCrossedFirstLine', data);
 	};
 };
 

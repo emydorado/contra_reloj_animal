@@ -4,9 +4,10 @@ export default function renderInstructions() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
         <h1>Instructions</h1>
+				<p>Here we explain how to play the game</p>
     `;
 
-	socket.on('confirmation', (data) => {
-		console.log('User confirmed:', data);
+	socket.on('userHasRegistered', (data) => {
+		router.navigateTo('/startGame');
 	});
 }
