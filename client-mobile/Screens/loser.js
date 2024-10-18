@@ -1,18 +1,31 @@
-import { router, socket } from '../routes.js';
+import { router } from '../routes.js';
 
 export default function renderLoser() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>loser</h1>
-				<button id="userLose">User lose</button>
-
+        <h1>Race Results</h1>
+				<p id="result">Animal wins!</p>
+				<p id="times">Waiting for times...</p>
     `;
 
-	document.getElementById('userLose').addEventListener('click', () => {
-		socket.emit('animalWins', { message: 'user lost!' });
-	});
+	const animals = [
+		{ id: 1, name: 'leon', information: 'This is LEON data', time: '5' },
+		{ id: 2, name: 'tigre', information: 'This is TIGRE data', time: '3' },
+		{ id: 3, name: 'mono', information: 'This is MONO data', time: '4' },
+		{ id: 4, name: 'tortuga', information: 'This is TORTUGA data', time: '8' },
+	];
 
-	socket.on('userCrossedSecondLine', (data) => {
-		console.log('User crossed the second line:', data);
-	});
+	const playerTime = localStorage.getItem('playerTime');
+	const animalId = localStorage.getItem('selectedAnimalId');
+
+	const selectedAnimal = animals.find((animal) => animal.id === Number(animalId));
+
+	console.log(playerTime);
+	console.log(selectedAnimal);
+
+	if (selectedAnimal) {
+		document.getElementById('times').innerText = `Player Time: ${playerTime}, Animal Time: ${selectedAnimal.time}`;
+	} else {
+		document.getElementById('times').innerText = `Player Time: ${playerTime}, Animal Time: not found`;
+	}
 }

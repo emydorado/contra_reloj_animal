@@ -9,20 +9,24 @@ export default function renderTimer() {
     `;
 
 	const animals = [
-		{ id: 1, name: 'leon', information: 'This is LEON data', time: '5' },
-		{ id: 2, name: 'tigre', information: 'This is TIGRE data', time: '3' },
-		{ id: 3, name: 'mono', information: 'This is MONO data', time: '4' },
-		{ id: 4, name: 'tortuga', information: 'This is TORTUGA data', time: '8' },
+		{ id: 1, name: 'leon', information: 'This is LEON data', time: 5 },
+		{ id: 2, name: 'tigre', information: 'This is TIGRE data', time: 3 },
+		{ id: 3, name: 'mono', information: 'This is MONO data', time: 4 },
+		{ id: 4, name: 'tortuga', information: 'This is TORTUGA data', time: 8 },
 	];
 
 	let timer;
 	let timeElapsed = 0;
 
-	document.getElementById('timer').style.display = 'block';
-	startTimer();
+	const timerElement = document.getElementById('timer');
+	if (timerElement) {
+		timerElement.style.display = 'block';
+		startTimer();
+	}
 
 	socket.on('userCrossedSecondLine', (data) => {
 		stopTimer();
+		localStorage.setItem('playerTime', timeElapsed);
 	});
 
 	function startTimer() {
@@ -30,7 +34,9 @@ export default function renderTimer() {
 
 		timer = setInterval(() => {
 			timeElapsed++;
-			document.getElementById('timer').innerText = `Time: ${timeElapsed} seconds`;
+			if (timerElement) {
+				timerElement.innerText = `Time: ${timeElapsed} seconds`;
+			}
 		}, 1000);
 	}
 
@@ -38,4 +44,12 @@ export default function renderTimer() {
 		clearInterval(timer);
 		console.log('Timer stopped.');
 	}
+
+	socket.on('animalWins', (data) => {
+		router.navigateTo('/loser');
+	});
+
+	socket.on('userWins', (data) => {
+		router.navigateTo('/winner');
+	});
 }

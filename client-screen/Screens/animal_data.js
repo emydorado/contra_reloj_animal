@@ -23,6 +23,8 @@ export default function renderAnimalData(word) {
 		app.innerHTML = `
 			<h1>${currentAnimal.name} Data</h1>
 			<p>${currentAnimal.information}</p>
+			<p>${currentAnimal.name} time for this race is of ${currentAnimal.time} seconds</p>
+
 		`;
 	} else {
 		app.innerHTML = `<p>Animal not found</p>`;
