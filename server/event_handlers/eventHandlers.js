@@ -1,7 +1,10 @@
+const users = require('../db/entities/users');
 const { assignroles } = require('../utils/helpers');
+const supabase = require('../services/supabase'); // Asegúrate de que la importación de supabase sea correcta si es necesario
 
 const userConnected = (socket, db, io) => {
-	return (data) => {
+	return async (data) => {
+		const userCreated = await users.getAllUsers(id);
 		io.emit('userConnected', userConnected);
 	};
 };
@@ -25,8 +28,20 @@ const startGame = (socket, db, io) => {
 };
 
 const userRegistered = (socket, db, io) => {
-	return (data) => {
-		io.emit('userHasRegistered', userRegistered);
+	return async (data) => {
+		try {
+			const { Name, Lastname, email } = data;
+			const { data: userData, error } = await supabase
+				.from('Registrations')
+				.insert([{ Name, Lastname, email }])
+				.select();
+
+			if (error) throw new Error(error.message);
+
+			io.emit('userHasRegistered', userData[0]);
+		} catch (err) {
+			console.error('Error al registrar usuario:', err.message);
+		}
 	};
 };
 

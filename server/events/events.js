@@ -1,4 +1,6 @@
-const db = require('../db');
+// const db = require('../db');
+const db = require('../db/entities/users');
+
 const {
 	userConnected,
 	selectedAnimal,

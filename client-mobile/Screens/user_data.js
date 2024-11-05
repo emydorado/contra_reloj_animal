@@ -5,14 +5,21 @@ export default function renderUserData() {
 	app.innerHTML = `
         <h1>form user data</h1>
 				<p>Insert your data so we can send your prize</p>
-			    <input type="text" placeholder="Name" />
-			    <input type="text" placeholder="Phone number" />
-			    <input type="text" placeholder="Email" />
+			    <input type="text" placeholder="Name" id="name"/>
+			    <input type="text" placeholder="Last Name" id="lastname"/>
+			    <input type="text" placeholder="Email" id="email"/>
 			    <button id="sendForm">Send form</button>
     `;
 
 	document.getElementById('sendForm').addEventListener('click', () => {
-		socket.emit('userRegistered', { message: 'user Registered!' });
+		const Name = document.getElementById('name').value;
+		const Lastname = document.getElementById('lastname').value;
+		const email = document.getElementById('email').value;
+		console.log(Name);
+		console.log(Lastname);
+		console.log(email);
+
+		socket.emit('userRegistered', { Name, Lastname, email });
 		router.navigateTo('/startGame');
 	});
 }

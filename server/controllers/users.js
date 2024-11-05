@@ -1,15 +1,12 @@
-const db = require('../db');
+const users = require('../db/entities/users');
+const { getIO } = require('../socket');
 
-const animals = [
-	{ id: 1, name: 'leon', time: 5 },
-	{ id: 2, name: 'tigre', time: 3 },
-	{ id: 3, name: 'mono', time: 4 },
-	{ id: 4, name: 'tortuga', time: 8 },
-];
-
-const users = async (req, res, io) => {
+const createUser = async (req, res, io) => {
 	try {
-		res.status(200).json(db.users);
+		const { name, lastname, email } = req.body;
+		const userCreated = await users.createUser({ name, lastname, email });
+		getIO().emit('userHasRegistered', data[0]);
+		res.status(200).json(data[0]);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
@@ -25,4 +22,34 @@ const crossedSecondLine = async (req, res) => {
 
 const winner = async (req, res, io) => {};
 
-module.exports = { crossedSecondLine, crossedFirstLine, users, winner };
+//supabase controllers
+const getUser = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const user = await users.getUserById(id);
+		res.status(200).json(user);
+	} catch (err) {
+		res.status(500).json({ error: err.message });
+	}
+};
+const updateUser = async (req, res) => {
+	try {
+		const { name, lastname, email } = req.body;
+		const { id } = req.params;
+		const userCreated = await users.updateUser(id, { name, lastname, email });
+		res.status(200).json(userCreated);
+	} catch (err) {
+		res.status(500).json({ error: err.message });
+	}
+};
+const deleteUser = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const userCreated = await users.deleteUser(id);
+		res.status(200).json(userCreated);
+	} catch (err) {
+		res.status(500).json({ error: err.message });
+	}
+};
+
+module.exports = { crossedSecondLine, crossedFirstLine, createUser, getUser, updateUser, deleteUser, winner };
