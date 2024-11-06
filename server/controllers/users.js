@@ -1,16 +1,12 @@
-const db = require('../db');
-// import { router, socket } from '../routes.js';
+const users = require('../db/entities/users');
+const { getIO } = require('../socket');
 
-const animals = [
-	{ id: 1, name: 'leon', time: 5 },
-	{ id: 2, name: 'tigre', time: 3 },
-	{ id: 3, name: 'mono', time: 4 },
-	{ id: 4, name: 'tortuga', time: 8 },
-];
-
-const users = async (req, res, io) => {
+const createUser = async (req, res, io) => {
 	try {
-		res.status(200).json(db.users);
+		const { name, lastname, email } = req.body;
+		const userCreated = await users.createUser({ name, lastname, email });
+		getIO().emit('userHasRegistered', data[0]);
+		res.status(200).json(data[0]);
 	} catch (err) {
 		res.status(500).json({ error: err.message });
 	}
@@ -24,26 +20,36 @@ const crossedSecondLine = async (req, res) => {
 	response.status(201).send(body);
 };
 
-const winner = async (req, res, io) => {
-	const { time, animalId } = req.body;
+const winner = async (req, res, io) => {};
 
-	const currentAnimal = animals.find((animal) => animal.id === parseInt(animalId));
-
-	if (!currentAnimal) {
-		return res.status(404).send({ message: 'Animal not found' });
+//supabase controllers
+const getUser = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const user = await users.getUserById(id);
+		res.status(200).json(user);
+	} catch (err) {
+		res.status(500).json({ error: err.message });
 	}
-
-	if (time < currentAnimal.time) {
-		console.log('Player wins!');
-		io.emit('userWins', { message: 'Player wins!', playerTime: time, animalTime: currentAnimal.time });
-
-		return res.status(200).send({ message: 'Player wins!', playerTime: time, animalTime: currentAnimal.time });
-	} else {
-		console.log('Animal wins!');
-		io.emit('animalWins', { message: 'Animal wins!', playerTime: time, animalTime: currentAnimal.time });
-
-		return res.status(200).send({ message: 'Animal wins!', playerTime: time, animalTime: currentAnimal.time });
+};
+const updateUser = async (req, res) => {
+	try {
+		const { name, lastname, email } = req.body;
+		const { id } = req.params;
+		const userCreated = await users.updateUser(id, { name, lastname, email });
+		res.status(200).json(userCreated);
+	} catch (err) {
+		res.status(500).json({ error: err.message });
+	}
+};
+const deleteUser = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const userCreated = await users.deleteUser(id);
+		res.status(200).json(userCreated);
+	} catch (err) {
+		res.status(500).json({ error: err.message });
 	}
 };
 
-module.exports = { crossedSecondLine, crossedFirstLine, users, winner };
+module.exports = { crossedSecondLine, crossedFirstLine, createUser, getUser, updateUser, deleteUser, winner };
