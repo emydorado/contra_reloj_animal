@@ -1,5 +1,5 @@
 const db = require('../db');
-import { router, socket } from '../routes.js';
+// import { router, socket } from '../routes.js';
 
 const animals = [
 	{ id: 1, name: 'leon', time: 5 },
