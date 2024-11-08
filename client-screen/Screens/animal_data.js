@@ -1,37 +1,25 @@
 import { router, socket } from '../routes.js';
 
-export default function renderAnimalData(word) {
-	console.log(word);
+export default function renderAnimalData(id) {
+	const storedAnimal = localStorage.getItem('animalSelected');
+	const animalData = storedAnimal ? JSON.parse(storedAnimal) : null;
+
 	const app = document.getElementById('app');
-	app.innerHTML = `
-        <h1>Animal Data</h1>
-				<p>Waiting for animal selection...</p>
-    `;
-
-	const animals = [
-		{ id: 1, name: 'leon', information: 'This is LEON data', time: '5' },
-		{ id: 2, name: 'tigre', information: 'This is TIGRE data', time: '3' },
-		{ id: 3, name: 'mono', information: 'This is MONO data', time: '4' },
-		{ id: 4, name: 'tortuga', information: 'This is TORTUGA data', time: '8' },
-	];
-
-	const animalId = parseInt(word, 10);
-	const currentAnimal = animals.find((animal) => animal.id === animalId);
-	console.log('this is current animal:', currentAnimal);
-
-	if (currentAnimal) {
+	if (animalData) {
 		app.innerHTML = `
-			<h1>${currentAnimal.name} Data</h1>
-			<p>${currentAnimal.information}</p>
-			<p>${currentAnimal.name} time for this race is of ${currentAnimal.time} seconds</p>
-
+			<h1>${animalData.nombre} Data</h1>
+			<p>${animalData.habitad}</p>
+			<p>${animalData.nombre} time for this race is ${animalData.valocidad} seconds</p>
 		`;
 	} else {
-		app.innerHTML = `<p>Animal not found</p>`;
+		app.innerHTML = `
+			<h1>Animal Data</h1>
+			<p>No animal data found.</p>
+		`;
 	}
 
 	socket.on('confirmAnimal', (data) => {
-		localStorage.setItem('selectedAnimalId', animalId);
+		// localStorage.setItem('selectedAnimalId', animalId);
 		router.navigateTo('/instructions');
 	});
 }

@@ -32,6 +32,7 @@ const getUser = async (req, res) => {
 		res.status(500).json({ error: err.message });
 	}
 };
+
 const updateUser = async (req, res) => {
 	try {
 		const { name, lastname, email } = req.body;
