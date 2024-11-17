@@ -8,6 +8,7 @@ export default function renderAdScreen() {
 
 	socket.on('userConnected', (data) => {
 		console.log('User is connected:', data);
+		router.navigateTo('/selectAnimal');
 	});
 
 	socket.on('AnimalHasBeenSelected', (animalId) => {

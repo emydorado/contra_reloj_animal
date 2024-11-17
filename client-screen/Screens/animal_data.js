@@ -8,8 +8,8 @@ export default function renderAnimalData(id) {
 	if (animalData) {
 		app.innerHTML = `
 			<h1>${animalData.nombre} Data</h1>
-			<p>${animalData.habitad}</p>
-			<p>${animalData.nombre} time for this race is ${animalData.valocidad} seconds</p>
+			<p>${animalData.habitat}</p>
+			<p>${animalData.nombre} time for this race is ${animalData.segundos} seconds</p>
 		`;
 	} else {
 		app.innerHTML = `

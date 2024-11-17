@@ -5,6 +5,7 @@ import renderStartGame from './Screens/start_game.js';
 import renderTimer from './Screens/timer.js';
 import renderLoser from './Screens/loser.js';
 import renderWinner from './Screens/winner.js';
+import renderSelectAnimal from './Screens/select_animal.js';
 import socket from './socket.js';
 
 const router = new Router({
@@ -32,6 +33,11 @@ router.add('/animalData/(:any)', async (word) => {
 router.add('/instructions', async () => {
 	clearScripts();
 	renderInstructions();
+});
+
+router.add('/selectAnimal', async () => {
+	clearScripts();
+	renderSelectAnimal();
 });
 
 router.add('/startGame', async () => {

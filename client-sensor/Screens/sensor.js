@@ -22,11 +22,16 @@ export default function renderSensor() {
 		document.getElementById('winner').style.display = 'block';
 	});
 
+	document.getElementById('btnSecondLine').addEventListener('click', () => {
+		socket.emit('userCrossedSecondLine');
+		document.getElementById('winner').style.display = 'block';
+	});
+
 	socket.on('userWins', () => {
-		alert('User wins!');
+		'user wins';
 	});
 
 	socket.on('animalWins', () => {
-		alert('Animal wins!');
+		'Animal wins!';
 	});
 }

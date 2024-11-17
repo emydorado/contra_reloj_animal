@@ -19,11 +19,19 @@ export default function renderTimer() {
 		}
 	});
 
-	socket.on('animalWins', (data) => {
+	socket.on('animalWins', ({ userTime, animalTime }) => {
+		localStorage.setItem('userTime', userTime);
+		localStorage.setItem('animalTime', animalTime);
+
+		console.log(`User wins! User Time: ${userTime}, Animal Time: ${animalTime}`);
 		router.navigateTo('/loser');
 	});
 
-	socket.on('userWins', (data) => {
+	socket.on('userWins', ({ userTime, animalTime }) => {
+		localStorage.setItem('userTime', userTime);
+		localStorage.setItem('animalTime', animalTime);
+
+		console.log(`Animal wins! User Time: ${userTime}, Animal Time: ${animalTime}`);
 		router.navigateTo('/winner');
 	});
 }

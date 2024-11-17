@@ -3,29 +3,19 @@ import { router } from '../routes.js';
 export default function renderWinner() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Race Results</h1>
-				<p id="result">Player wins!</p>
+           <h1>You win!</h1>
 				<p id="times">Waiting for times...</p>
     `;
 
-	const animals = [
-		{ id: 1, name: 'leon', information: 'This is LEON data', time: '5' },
-		{ id: 2, name: 'tigre', information: 'This is TIGRE data', time: '3' },
-		{ id: 3, name: 'mono', information: 'This is MONO data', time: '4' },
-		{ id: 4, name: 'tortuga', information: 'This is TORTUGA data', time: '8' },
-	];
+	const userTime = localStorage.getItem('userTime');
+	const animalTime = localStorage.getItem('animalTime');
 
-	const playerTime = localStorage.getItem('playerTime');
-	const animalId = localStorage.getItem('selectedAnimalId');
+	const selectedanimal = JSON.parse(localStorage.getItem('animalSelected')); // Deserializar JSON
+	const animalId = selectedanimal.id;
 
-	const selectedAnimal = animals.find((animal) => animal.id === Number(animalId));
-
-	console.log(playerTime);
-	console.log(selectedAnimal);
-
-	if (selectedAnimal) {
-		document.getElementById('times').innerText = `Player Time: ${playerTime}, Animal Time: ${selectedAnimal.time}`;
+	if (userTime && animalTime) {
+		document.getElementById('times').innerText = `User Time: ${userTime} seconds, Animal Time: ${animalTime} seconds`;
 	} else {
-		document.getElementById('times').innerText = `Player Time: ${playerTime}, Animal Time: not found`;
+		document.getElementById('times').innerText = 'Times not available.';
 	}
 }

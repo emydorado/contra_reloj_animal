@@ -15,11 +15,16 @@ export default function renderUserData() {
 		const Name = document.getElementById('name').value;
 		const Lastname = document.getElementById('lastname').value;
 		const email = document.getElementById('email').value;
+
+		const selectedanimal = JSON.parse(localStorage.getItem('animalSelected')); // Deserializar JSON
+		const animalId = selectedanimal.id; // Extraer solo el ID
+
 		console.log(Name);
 		console.log(Lastname);
 		console.log(email);
+		console.log(animalId);
 
-		socket.emit('userRegistered', { Name, Lastname, email });
+		socket.emit('userRegistered', { Name, Lastname, email, animalId });
 		router.navigateTo('/startGame');
 	});
 }

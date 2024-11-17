@@ -12,19 +12,4 @@ export default function renderSelectAnimal() {
 				</div>
 				<button id="selectAnimal">Select animal</button>
     `;
-
-	const buttons = document.getElementById('buttons');
-
-	buttons.addEventListener('click', (event) => {
-		if (event.target.tagName === 'BUTTON' && event.target.dataset.id) {
-			const animalId = event.target.getAttribute('data-id');
-			socket.emit('selectedAnimal', animalId);
-		}
-	});
-
-	socket.emit('userConnected');
-
-	document.getElementById('selectAnimal').addEventListener('click', () => {
-		router.navigateTo('/confirmSelection');
-	});
 }
