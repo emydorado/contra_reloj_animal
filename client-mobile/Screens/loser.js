@@ -1,4 +1,4 @@
-import { router } from '../routes.js';
+import { router, socket } from '../routes.js';
 
 export default function renderLoser() {
 	const app = document.getElementById('app');
@@ -6,6 +6,7 @@ export default function renderLoser() {
           <h1>Animal Wins!</h1>
 				<p id="result">Animal wins!</p>
 				<p id="times">Waiting for times...</p>
+				<button id="prize">Claim prize</button>
     `;
 
 	const userTime = localStorage.getItem('userTime');
@@ -16,4 +17,8 @@ export default function renderLoser() {
 	} else {
 		document.getElementById('times').innerText = 'Times not available.';
 	}
+
+	document.getElementById('prize').addEventListener('click', () => {
+		socket.emit('sendPrize');
+	});
 }
