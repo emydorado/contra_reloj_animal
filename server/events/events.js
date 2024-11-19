@@ -12,7 +12,8 @@ const {
 	startGame,
 	userCrossedFirstLine,
 	userCrossedSecondLine,
-	sendPrize,
+	sendWinnerPrize,
+	sendLoserPrize,
 } = require('../event_handlers/eventHandlers.js');
 
 const events = (socket, io) => {
@@ -36,7 +37,9 @@ const events = (socket, io) => {
 
 	socket.on('userCrossedFirstLine', userCrossedFirstLine(db, socket, io));
 
-	socket.on('sendPrize', sendPrize(db, socket, io));
+	socket.on('sendWinnerPrize', sendWinnerPrize(db, socket, io));
+
+	socket.on('sendLoserPrize', sendLoserPrize(db, socket, io));
 };
 
 module.exports = { events };

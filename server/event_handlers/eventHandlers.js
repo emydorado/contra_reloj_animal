@@ -1,7 +1,7 @@
 const users = require('../db/entities/users');
 const { assignroles } = require('../utils/helpers');
 const supabase = require('../services/supabase'); // Asegúrate de que la importación de supabase sea correcta si es necesario
-const { sendEmailWithTemplate } = require('../services/brevo');
+const { sendWinnerEmailWithTemplate, sendLoserEmailWithTemplate } = require('../services/brevo');
 
 const userConnected = (socket, db, io) => {
 	return async (data) => {
@@ -150,10 +150,17 @@ const animalWins = (socket, db, io) => {
 	};
 };
 
-const sendPrize = (socket, db, io) => {
+const sendLoserPrize = (socket, db, io) => {
 	return async (data) => {
-		io.emit('sendedPrize', sendPrize);
-		await sendEmailWithTemplate();
+		io.emit('sendedPrize');
+		await sendLoserEmailWithTemplate();
+	};
+};
+
+const sendWinnerPrize = (socket, db, io) => {
+	return async (data) => {
+		io.emit('sendedPrize');
+		await sendWinnerEmailWithTemplate();
 	};
 };
 
@@ -168,5 +175,6 @@ module.exports = {
 	animalWins,
 	startGame,
 	userCrossedFirstLine,
-	sendPrize,
+	sendLoserPrize,
+	sendWinnerPrize,
 };

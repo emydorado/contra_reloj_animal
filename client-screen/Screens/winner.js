@@ -1,4 +1,4 @@
-import { router } from '../routes.js';
+import { router, socket } from '../routes.js';
 
 export default function renderWinner() {
 	const app = document.getElementById('app');
@@ -18,4 +18,10 @@ export default function renderWinner() {
 	} else {
 		document.getElementById('times').innerText = 'Times not available.';
 	}
+
+	socket.on('sendedPrize', (data) => {
+		console.log('hola');
+
+		router.navigateTo('/');
+	});
 }

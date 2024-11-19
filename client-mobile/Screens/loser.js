@@ -19,6 +19,7 @@ export default function renderLoser() {
 	}
 
 	document.getElementById('prize').addEventListener('click', () => {
-		socket.emit('sendPrize');
+		socket.emit('sendLoserPrize');
+		router.navigateTo('/end');
 	});
 }

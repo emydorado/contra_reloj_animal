@@ -22,6 +22,7 @@ export default function renderWinner() {
 	}
 
 	document.getElementById('prize').addEventListener('click', () => {
-		socket.emit('sendPrize');
+		socket.emit('sendWinnerPrize');
+		router.navigateTo('/end');
 	});
 }

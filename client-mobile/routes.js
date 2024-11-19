@@ -3,8 +3,9 @@ import renderUserData from './screens/user_data.js';
 import renderSelectAnimal from './Screens/select_animal.js';
 import renderStartGame from './screens/start_game.js';
 import renderTimer from './screens/timer.js';
-import renderLoser from './screens/loser.js';
-import renderWinner from './screens/winner.js';
+import renderLoser from './Screens/loser.js';
+import renderWinner from './Screens/winner.js';
+import renderEnd from './Screens/end_screen.js';
 import socket from './socket.js';
 
 const router = new Router({
@@ -53,6 +54,11 @@ router.add('/loser', async () => {
 router.add('/winner', async () => {
 	clearScripts();
 	renderWinner();
+});
+
+router.add('/end', async () => {
+	clearScripts();
+	renderEnd();
 });
 
 router.check().addUriListener();
