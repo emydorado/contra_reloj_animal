@@ -8,6 +8,10 @@ import renderWinner from './Screens/winner.js';
 import renderEnd from './Screens/end_screen.js';
 import socket from './socket.js';
 
+function updateBodyClass(className) {
+	document.body.className = className; // Reemplaza cualquier clase existente
+}
+
 const router = new Router({
 	// check this for more features with Router: https://github.com/Graidenix/vanilla-router
 	mode: 'hash',
@@ -23,41 +27,49 @@ function clearScripts() {
 
 router.add('/', async () => {
 	clearScripts();
+	updateBodyClass('ad-screen');
 	renderSelectAnimal();
 });
 
 router.add('/confirmSelection', async () => {
 	clearScripts();
+	updateBodyClass('confirmSelection');
 	renderConfirmSelection();
 });
 
 router.add('/userData', async () => {
 	clearScripts();
+	updateBodyClass('userData');
 	renderUserData();
 });
 
 router.add('/startGame', async () => {
 	clearScripts();
+	updateBodyClass('startGame');
 	renderStartGame();
 });
 
 router.add('/timer', async () => {
 	clearScripts();
+	updateBodyClass('timer');
 	renderTimer();
 });
 
 router.add('/loser', async () => {
 	clearScripts();
+	updateBodyClass('loser');
 	renderLoser();
 });
 
 router.add('/winner', async () => {
 	clearScripts();
+	updateBodyClass('winner');
 	renderWinner();
 });
 
 router.add('/end', async () => {
 	clearScripts();
+	updateBodyClass('end');
 	renderEnd();
 });
 
