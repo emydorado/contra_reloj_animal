@@ -7,16 +7,32 @@ body {
 	align-items: center;
 	justify-content: flex-start;
 	min-height: 100vh;
-	padding: 1rem;
+	padding: 0;
 	box-sizing: border-box;
+}
+
+#topImage {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+#bottomImage {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	z-index: -1;
+	object-fit: cover;
 }
 
 #instructions {
 	color: #301803;
-	font-size: 1rem;
+	font-size: 12px;
 	line-height: 1.4;
 	text-align: center;
-	margin-bottom: 1.5rem;
+	margin: 1rem;
 	width: 90%;
 }
 
@@ -27,6 +43,8 @@ body {
 	justify-content: center;
 	width: 100%;
 	max-width: 400px;
+	padding: 1rem; /* Espacio interno respecto al borde del contenedor */
+	box-sizing: border-box;
 }
 
 #buttons button {
@@ -47,6 +65,8 @@ body {
 }
 
 #selectAnimal {
+	display: block; /* Asegura que el botón ocupe una fila completa */
+	margin: 2rem auto 0 auto; /* Margen superior y centrado horizontal */
 	background-color: #ff7500;
 	color: #fffbe6;
 	border: none;
@@ -56,7 +76,6 @@ body {
 	font-weight: bold;
 	cursor: pointer;
 	transition: background-color 0.3s, transform 0.2s;
-	margin-top: 2rem; /* Espacio superior */
 }
 
 #selectAnimal:hover {
