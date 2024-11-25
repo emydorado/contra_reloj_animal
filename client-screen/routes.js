@@ -8,6 +8,17 @@ import renderWinner from './Screens/winner.js';
 import renderSelectAnimal from './Screens/select_animal.js';
 import socket from './socket.js';
 
+function updateBodyClass(className) {
+	document.body.className = className; // Reemplaza cualquier clase existente
+}
+
+function clearAppContent() {
+	const app = document.getElementById('app');
+	if (app) {
+		app.innerHTML = ''; // Limpia el contenido del div con id "app"
+	}
+}
+
 const router = new Router({
 	mode: 'hash',
 	page404: (path) => {
@@ -22,26 +33,31 @@ function clearScripts() {
 
 router.add('/', async () => {
 	clearScripts();
+	updateBodyClass('ad-screen');
 	renderAdScreen();
 });
 
 router.add('/animalData/(:any)', async (word) => {
 	clearScripts();
+	updateBodyClass('animal-data');
 	renderAnimalData(word);
 });
 
 router.add('/instructions', async () => {
 	clearScripts();
+	updateBodyClass('instructions');
 	renderInstructions();
 });
 
 router.add('/selectAnimal', async () => {
 	clearScripts();
+	updateBodyClass('selectAnimal');
 	renderSelectAnimal();
 });
 
 router.add('/startGame', async () => {
 	clearScripts();
+	updateBodyClass('startGame');
 	renderStartGame();
 });
 
@@ -52,11 +68,13 @@ router.add('/timer', async (word) => {
 
 router.add('/loser', async () => {
 	clearScripts();
+	updateBodyClass('loser');
 	renderLoser();
 });
 
 router.add('/winner', async () => {
 	clearScripts();
+	updateBodyClass('winner');
 	renderWinner();
 });
 
