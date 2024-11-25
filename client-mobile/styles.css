@@ -1,4 +1,4 @@
-body {
+body.ad-screen {
 	background-color: #fffbe6;
 	margin: 0;
 	font-family: 'Arial', sans-serif;
@@ -97,3 +97,78 @@ body {
 	background-color: #ff5e00;
 	transform: scale(1.1);
 }
+
+/* General Styles */
+body.confirmSelection {
+	background-color: #fffbe6; /* Fondo claro */
+	margin: 0;
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Centra horizontalmente */
+	justify-content: center; /* Centra verticalmente */
+	min-height: 100vh; /* Abarca toda la altura de la ventana */
+	padding: 1rem;
+	box-sizing: border-box;
+	color: #301803; /* Texto en un marrón cálido */
+	text-align: center; /* Centra el texto */
+}
+
+/* Title Styles */
+#title {
+	font-size: 2rem;
+	color: #ff7500; /* Naranja destacado */
+	margin-bottom: 1rem;
+}
+
+/* Paragraph Styles */
+#confirmation,
+#change {
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0.5rem 0;
+	width: 90%; /* Ajuste para pantallas pequeñas */
+	max-width: 600px; /* Máximo ancho */
+}
+
+/* Button Styles */
+#confirmationBtn,
+#changeAnimal {
+	background-color: #ff7500; /* Fondo suave */
+	color: #ffeec9; /* Texto marrón */
+	border: none;
+	border-radius: 50px; /* Botones redondeados */
+	padding: 0.8rem 1.5rem;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.2s;
+	margin: 1rem 0; /* Espaciado entre botones */
+	width: 80%; /* Botones adaptables */
+	max-width: 300px; /* Límite de ancho */
+	text-align: center;
+	font-weight: bold;
+}
+
+/* Hover and Active States */
+#confirmationBtn:hover,
+#changeAnimal:hover {
+	background-color: #ff5e00; /* Cambio de color al pasar el ratón */
+	transform: scale(1.05); /* Ligero aumento */
+	color: #ffeec9;
+}
+
+/* Container for Buttons and Content */
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Centra horizontalmente */
+	justify-content: center; /* Centra verticalmente */
+	width: 100%;
+	max-width: 600px;
+	background-color: #ffeec9; /* Fondo suave */
+	border-radius: 15px;
+	padding: 2rem;
+	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra elegante */
+	margin: 1rem;
+}
+
