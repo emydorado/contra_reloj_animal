@@ -3,7 +3,7 @@ import { router, socket } from '../routes.js';
 export default function renderSelectAnimal() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Select animal</h1>
+				<p id="instructions">¡Elige tu oponente animal! ¿Quieres correr contra una tortuga lenta pero constante, o prefieres perder dignamente contra un canguro que ni siquiera te verá? ¡Tú decides!</p>
 				<div id=buttons>
 				<button data-id="aba237a6-3fa0-4ccc-8c3c-fa989f63c78b">León</button>
 				<button data-id="f892ab3a-d1df-4d5e-9d7c-50e9212a5576">Canguro</button>
@@ -15,7 +15,7 @@ export default function renderSelectAnimal() {
 				<button data-id="b7a28f2f-a699-4d8c-b4c2-01e1ac008296">Colibrí</button>
 				<button data-id="ee7417f6-6dff-4f15-ba9a-82e8d3ef3ae6">Tucán</button>
 				</div>
-				<button id="selectAnimal">Select animal</button>
+				<button id="selectAnimal">JUGAR</button>
     `;
 
 	const buttons = document.getElementById('buttons');

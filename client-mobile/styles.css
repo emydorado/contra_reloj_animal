@@ -1,86 +1,65 @@
-/* Estilo general */
 body {
-	font-family: 'Arial', sans-serif;
-	background-color: #f9f5eb;
-	color: #2d572c;
+	background-color: #fffbe6;
 	margin: 0;
-	padding: 0;
+	font-family: 'Arial', sans-serif;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	height: 100vh;
+	justify-content: flex-start;
+	min-height: 100vh;
+	padding: 1rem;
+	box-sizing: border-box;
 }
 
-h1 {
-	font-size: 2.5rem;
-	font-weight: bold;
-	color: #2d572c;
-	margin-bottom: 1rem;
+#instructions {
+	color: #301803;
+	font-size: 1rem;
+	line-height: 1.4;
 	text-align: center;
+	margin-bottom: 1.5rem;
+	width: 90%;
 }
 
-/* Botones de animales */
 #buttons {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 1rem;
-	margin-bottom: 2rem;
+	gap: 1rem; /* Espaciado entre botones */
+	justify-content: center;
+	width: 100%;
+	max-width: 400px;
 }
 
 #buttons button {
-	background-color: #fdeecb;
+	background-color: #ffeec9;
+	color: #301803;
 	border: none;
-	border-radius: 10px;
-	padding: 1rem;
-	font-size: 1rem;
-	font-weight: bold;
-	color: #2d572c;
+	border-radius: 50px;
+	padding: 0.8rem 1.2rem;
+	font-size: 0.9rem;
 	cursor: pointer;
-	transition: transform 0.2s, box-shadow 0.2s;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	transition: background-color 0.3s, transform 0.2s;
+	text-align: center;
 }
 
 #buttons button:hover {
-	transform: scale(1.1);
-	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	background-color: #ffddb3;
+	transform: scale(1.05);
 }
 
-#buttons button:active {
-	background-color: #f9c572;
-}
-
-/* Botón de confirmación */
 #selectAnimal {
-	background-color: #ffa726;
-	color: #fff;
+	background-color: #ff7500;
+	color: #fffbe6;
 	border: none;
-	border-radius: 5px;
-	padding: 1rem 2rem;
+	border-radius: 50px;
+	padding: 1rem 2.5rem;
 	font-size: 1.2rem;
 	font-weight: bold;
 	cursor: pointer;
 	transition: background-color 0.3s, transform 0.2s;
+	margin-top: 2rem; /* Espacio superior */
 }
 
 #selectAnimal:hover {
-	background-color: #fb8c00;
-}
-
-#selectAnimal:active {
-	transform: scale(0.95);
-}
-
-/* Fondo y decoración */
-body::before {
-	content: '';
-	position: absolute;
-	top: 0;
-	left: 0;
-	right: 0;
-	height: 200px;
-	background: linear-gradient(180deg, #a5d6a7, transparent);
-	z-index: -1;
+	background-color: #ff5e00;
+	transform: scale(1.1);
 }
