@@ -6,7 +6,7 @@ SerialPort.list().then((ports) => {
 
 // create a port to listen and write
 const port = new SerialPort({
-  path: "/dev/cu.usbmodem14201",
+  path: "",
   baudRate: 9600,
 });
 
