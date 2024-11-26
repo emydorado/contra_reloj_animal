@@ -11,7 +11,6 @@ body.ad-screen {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-right: 60px;
 	position: absolute;
 	bottom: 75vh;
 }
@@ -19,17 +18,40 @@ body.ad-screen {
 .hojasArribaDer {
 	display: flex;
 	justify-content: center;
-	height: 200px;
-	margin-left: 22.5vh;
-	margin-bottom: 11vh;
+	height: 220px;
+	margin-bottom: 7vh;
+	margin-left: 12vh;
 }
 
 .hojasArribaIzq {
 	display: flex;
+	height: 250px;
+	margin-bottom: 12vh;
+	margin-left: 5vh;
+}
+
+.hojasArribaCentro {
+	display: flex;
 	justify-content: center;
-	height: 300px;
-	margin-left: 7vh;
-	margin-bottom: 6vh;
+	height: 290px;
+	margin-left: 6vh;
+}
+
+.abajo {
+	position: relative;
+	z-index: 0;
+	margin-top: 12vh;
+	height: 52vh;
+}
+
+#abajo {
+	display: flex;
+	flex-direction: row;
+	align-items: flex-end;
+	justify-content: center;
+	position: relative;
+	z-index: 2;
+	top: 36vh;
 }
 
 .title {
@@ -53,7 +75,7 @@ body.ad-screen {
 	align-items: center;
 	position: absolute;
 	z-index: 1;
-	bottom: 19vh;
+	bottom: 17vh;
 	left: 13vh;
 }
 .qr {
@@ -62,52 +84,36 @@ body.ad-screen {
 
 #hojasAbajo img {
 	height: 20vh;
-	padding-left: 2vh;
+	padding-left: 15vh;
 	padding-bottom: 8vh;
 	position: relative;
 	z-index: 1;
 }
 
-.agua {
-	position: relative;
-	z-index: 0;
-	margin-top: 2vh;
-}
-
-#abajo {
-	display: flex;
-	flex-direction: row;
-	align-items: flex-end;
-	justify-content: center;
-	position: relative;
-	z-index: 2;
-	top: 36vh;
-}
-
 .hojasLado {
 	position: absolute;
 	top: 55%;
-	right: 63vh;
-	width: 200px;
+	right: 60vh;
+	width: 180px;
 }
 
 .mono {
 	position: absolute;
-	top: 10%;
-	left: 60vh;
-	width: 240px;
+	top: 15%;
+	left: 59vh;
+	width: 250px;
 }
 
 .tucan {
 	position: absolute;
 	top: 15%;
-	right: 55vh;
-	width: 300px;
+	right: 53vh;
+	width: 340px;
 }
 
 .venado {
 	position: absolute;
 	top: 70%;
-	left: 120px;
+	left: 50px;
 	width: 250px;
 }

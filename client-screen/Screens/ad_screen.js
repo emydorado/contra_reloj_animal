@@ -6,7 +6,9 @@ export default function renderAdScreen() {
 				<div id="hojasArriba">
 
 	      <img src="./resources/hojasArribaIzq.png" class="hojasArribaIzq">
+				<img src="./resources/hojasArribaCentro.png" class="hojasArribaCentro">
 	      <img src="./resources/hojasArribaDer.png" class="hojasArribaDer">
+
 				</div>
 
 				<img src="./resources/mono.png" class="mono">
@@ -26,14 +28,7 @@ export default function renderAdScreen() {
 				</div>
 
 				<div id="abajo">
-
-				<div id="hojasAbajo">
-        <img src="./resources/hojasAbajo.png" class="hojasAbajo">
-				</div>
-
-				<div id="agua">
-        <img src="./resources/agua.png" class="agua">
-				</div>
+        <img src="./resources/abajo.png" class="abajo">
 				</div>
     `;
 
