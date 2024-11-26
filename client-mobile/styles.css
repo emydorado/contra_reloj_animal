@@ -133,7 +133,8 @@ body.confirmSelection {
 
 /* Button Styles */
 #confirmationBtn,
-#changeAnimal {
+#changeAnimal,
+#sendForm {
 	background-color: #ff7500; /* Fondo suave */
 	color: #ffeec9; /* Texto marrón */
 	border: none;
@@ -151,7 +152,8 @@ body.confirmSelection {
 
 /* Hover and Active States */
 #confirmationBtn:hover,
-#changeAnimal:hover {
+#changeAnimal:hover,
+#sendForm {
 	background-color: #ff5e00; /* Cambio de color al pasar el ratón */
 	transform: scale(1.05); /* Ligero aumento */
 	color: #ffeec9;
@@ -172,3 +174,41 @@ body.confirmSelection {
 	margin: 1rem;
 }
 
+body.userData {
+	background-color: #fffbe6; /* Fondo claro */
+	margin: 0;
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center; /* Centra horizontalmente */
+	justify-content: center; /* Centra verticalmente */
+	min-height: 100vh; /* Abarca toda la altura de la ventana */
+	padding: 1rem;
+	box-sizing: border-box;
+	color: #301803; /* Texto en un marrón cálido */
+	text-align: center;
+}
+
+input[type='text'] {
+	background-color: #ffc680; /* Color de fondo */
+	color: #fffbe6; /* Color del texto */
+	border: none; /* Sin borde */
+	border-radius: 50px; /* Esquinas redondeadas */
+	padding: 0.8rem 1.5rem; /* Espaciado interno */
+	font-size: 1rem; /* Tamaño de la fuente */
+	font-family: 'Arial', sans-serif; /* Fuente */
+	width: 100%; /* Ocupa el ancho completo del contenedor */
+	max-width: 400px; /* Máximo ancho */
+	outline: none; /* Sin contorno al enfocar */
+	margin-bottom: 1rem; /* Espaciado entre los inputs */
+}
+
+input[type='text']::placeholder {
+	color: #fffbe6; /* Color del texto de marcador */
+	opacity: 0.9; /* Transparencia */
+}
+
+/* Efecto al enfocar */
+input[type='text']:focus {
+	background-color: #ffb870; /* Ligero cambio en el color de fondo */
+}
