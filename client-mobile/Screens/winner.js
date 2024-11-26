@@ -3,11 +3,12 @@ import { router, socket } from '../routes.js';
 export default function renderWinner() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-           <h1>You win!</h1>
-				<p id="times">Waiting for times...</p>
-				<button id="prize">Claim prize</button>
-
-    `;
+	<img id="topImagen" src="./resources/topImage.png" alt="Imagen header">
+	<h1>You win!</h1>
+	<p id="times">Waiting for times...</p>
+	<button id="prize">Claim prize</button>
+	<img id="bottomImage" src="./resources/bottomImage.png" alt="Imagen footer">
+	`;
 
 	const userTime = localStorage.getItem('userTime');
 	const animalTime = localStorage.getItem('animalTime');
