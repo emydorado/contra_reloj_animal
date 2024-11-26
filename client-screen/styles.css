@@ -471,7 +471,8 @@ body.timer h1 {
 /* timer */
 
 /* animal wins */
-body.loser {
+body.loser,
+body.winner {
 	background-color: #fffbe6;
 	margin: 0;
 	font-family: 'Arial', sans-serif;
@@ -482,4 +483,97 @@ body.loser {
 	min-height: 100vh;
 	padding: 0;
 	box-sizing: border-box;
+}
+
+#topWinner {
+	width: 75vh;
+	height: auto;
+}
+
+#pajaroTucan {
+	width: 100%;
+}
+
+#ganador {
+	font-family: 'Lilita One', cursive;
+	color: #00712d;
+	font-size: 80px;
+	margin-top: 0;
+}
+
+#timeContent {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#result-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+#result-container p {
+	color: #513115;
+	font-size: 30px;
+	margin: 15px;
+}
+
+#animal-time span {
+	font-size: 50px;
+	color: #ff7500;
+	margin: 30px;
+	font-weight: 900;
+}
+
+#user-time span {
+	font-size: 50px;
+	color: #ffeec9;
+	margin: 30px;
+	font-weight: 900;
+	background-color: #ff7500;
+	padding: 16px;
+	border-radius: 30px;
+}
+
+body.loser h2,
+body.winner h2 {
+	margin-top: 0;
+	margin-bottom: 15px;
+	font-size: 40px;
+	font-weight: 600;
+	color: #513115;
+	display: flex;
+	justify-content: center;
+}
+
+body.loser h2 b,
+body.winner h2 b {
+	color: #ff7500;
+}
+
+.reclamarPremio {
+	margin-top: 50px;
+}
+
+body.loser h3,
+body.winner h3 {
+	font-family: 'Lilita One', cursive;
+	font-size: 70px;
+	color: #ff7500;
+	border-radius: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0;
+	margin-bottom: 35px;
+}
+
+.bottom {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
