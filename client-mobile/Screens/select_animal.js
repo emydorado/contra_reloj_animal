@@ -5,7 +5,7 @@ export default function renderSelectAnimal() {
 	app.innerHTML = `
 				<div id="app">
   			<img id="topImage" src="./resources/contraReloj.png" alt="Imagen header">
- 				<p id="instructions">¡Elige tu oponente animal! ¿Quieres correr contra una tortuga lenta pero constante, o prefieres perder dignamente contra un canguro que ni siquiera te verá? ¡Tú decides!</p>
+ 				<p id="instructions"><b>¡Elige tu oponente animal!</b> ¿Quieres correr contra una tortuga lenta pero constante, o prefieres perder dignamente contra un canguro que ni siquiera te verá? ¡Tú decides!</p>
   			<div id="buttons">
 
 				<button data-id="aba237a6-3fa0-4ccc-8c3c-fa989f63c78b">
