@@ -130,7 +130,8 @@ body.confirmSelection {
 
 #confirmationBtn,
 #changeAnimal,
-#sendForm {
+#sendForm,
+#gameStarted {
 	background-color: #ff7500;
 	color: #ffeec9;
 	border: none;
@@ -148,7 +149,8 @@ body.confirmSelection {
 
 #confirmationBtn:hover,
 #changeAnimal:hover,
-#sendForm {
+#sendForm:hover,
+#gameStarted:hover {
 	background-color: #ff5e00;
 	transform: scale(1.05);
 	color: #ffeec9;
@@ -203,4 +205,53 @@ input[type='text']::placeholder {
 
 input[type='text']:focus {
 	background-color: #ffb870;
+}
+
+body {
+	margin: 0;
+	font-family: Arial, sans-serif;
+	background-color: #fff8e7; /* Fondo similar al de la imagen */
+	text-align: center;
+}
+
+/* Contenedor principal */
+#app {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: start;
+	height: 100vh;
+}
+
+/* Imagen superior */
+#topImagen {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	margin-bottom: 20px; /* Espacio entre la imagen y el botón */
+}
+
+/* Botón principal */
+#StartGame {
+	background-color: #00712d;
+	color: #fff8e7;
+	font-size: 20px;
+	padding: 10px 20px;
+	font-weight: bold;
+	border: none;
+	border-radius: 20px;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+}
+
+#StartGame:hover {
+	transform: scale(1.1);
+}
+
+/* Imagen inferior */
+#bottomImage {
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+	margin-top: auto; /* Empuja la imagen al fondo */
 }
