@@ -4,8 +4,14 @@ export default function renderTimer() {
 	console.log();
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>timer</h1>
+		  	<img id="timerTop" src="./resources/timerTop.png" alt="Imagen top">
+
+				<div id="contentTimer">
+        <h1>¡Buena suerte!</h1>
 				<p id="timer" style="display: none;">Time: 0 seconds</p>
+				</div>
+
+				<img id="timerBottom" src="./resources/timerBottom.png" alt="Imagen bottom">
     `;
 
 	const timerElement = document.getElementById('timer');
@@ -15,7 +21,7 @@ export default function renderTimer() {
 		const timerElement = document.getElementById('timer');
 		if (timerElement) {
 			timerElement.style.display = 'block';
-			timerElement.innerText = `Time: ${timeElapsed} seconds`;
+			timerElement.innerText = `${timeElapsed} seconds`;
 		}
 	});
 

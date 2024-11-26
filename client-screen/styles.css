@@ -165,7 +165,7 @@ body.selectAnimal {
 	object-fit: cover;
 }
 
-#instructions {
+body.selectAnimal #instructions {
 	color: #301803;
 	font-size: 25px;
 	line-height: 1.4;
@@ -353,7 +353,7 @@ body.instructions h3 {
 	justify-content: center;
 }
 
-#instructions {
+body.instructions #instructions {
 	margin-left: 10vh;
 	display: flex;
 	flex-direction: column;
@@ -420,4 +420,66 @@ body.startGame #info h1 {
 
 body.startGame #info h1 b {
 	color: #ff7500;
+}
+/* start Game */
+
+/* timer */
+body.timer {
+	background-color: #fffbe6;
+	margin: 0;
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 100vh;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#timerTop {
+	width: 100%;
+	height: auto;
+}
+
+#timerBottom {
+	width: 75vh;
+}
+
+#contentTimer {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	align-items: center;
+}
+
+body.timer h1 {
+	color: #301803;
+	font-size: 60px;
+}
+
+#timer {
+	font-family: 'Lilita One', cursive;
+	font-size: 80px;
+	color: #fffbe6;
+	background-color: #00712d;
+	padding: 60px;
+	border-radius: 30px;
+	margin-top: 30px;
+	margin-bottom: 135px;
+}
+/* timer */
+
+/* animal wins */
+body.loser {
+	background-color: #fffbe6;
+	margin: 0;
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 100vh;
+	padding: 0;
+	box-sizing: border-box;
 }

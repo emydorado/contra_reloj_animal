@@ -63,6 +63,7 @@ router.add('/startGame', async () => {
 
 router.add('/timer', async (word) => {
 	clearScripts();
+	updateBodyClass('timer');
 	renderTimer(word);
 });
 
