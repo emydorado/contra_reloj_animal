@@ -20,10 +20,10 @@ body.ad-screen {
 #antilopeImage,
 #colibriImage,
 #tucanImage {
-	width: 40px; /* La imagen ocupa todo el ancho del cuadro */
-	height: auto; /* Mantiene las proporciones */
-	border-radius: 10px; /* Esquinas redondeadas */
-	margin-bottom: 1rem; /* Espaciado entre la imagen y el texto */
+	width: 40px;
+	height: auto;
+	border-radius: 10px;
+	margin-bottom: 1rem;
 }
 
 #topImage {
@@ -54,11 +54,11 @@ body.ad-screen {
 #buttons {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 1rem; /* Espaciado entre botones */
+	gap: 1rem;
 	justify-content: center;
 	width: 100%;
 	max-width: 400px;
-	padding: 1rem; /* Espacio interno respecto al borde del contenedor */
+	padding: 1rem;
 	box-sizing: border-box;
 }
 
@@ -98,117 +98,109 @@ body.ad-screen {
 	transform: scale(1.1);
 }
 
-/* General Styles */
 body.confirmSelection {
-	background-color: #fffbe6; /* Fondo claro */
+	background-color: #fffbe6;
 	margin: 0;
 	font-family: 'Arial', sans-serif;
 	display: flex;
 	flex-direction: column;
-	align-items: center; /* Centra horizontalmente */
-	justify-content: center; /* Centra verticalmente */
-	min-height: 100vh; /* Abarca toda la altura de la ventana */
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
 	padding: 1rem;
 	box-sizing: border-box;
-	color: #301803; /* Texto en un marrón cálido */
-	text-align: center; /* Centra el texto */
+	color: #301803;
+	text-align: center;
 }
 
-/* Title Styles */
 #title {
 	font-size: 2rem;
-	color: #ff7500; /* Naranja destacado */
+	color: #ff7500;
 	margin-bottom: 1rem;
 }
 
-/* Paragraph Styles */
 #confirmation,
 #change {
 	font-size: 1rem;
 	line-height: 1.6;
 	margin: 0.5rem 0;
-	width: 90%; /* Ajuste para pantallas pequeñas */
-	max-width: 600px; /* Máximo ancho */
+	width: 90%;
+	max-width: 600px;
 }
 
-/* Button Styles */
 #confirmationBtn,
 #changeAnimal,
 #sendForm {
-	background-color: #ff7500; /* Fondo suave */
-	color: #ffeec9; /* Texto marrón */
+	background-color: #ff7500;
+	color: #ffeec9;
 	border: none;
-	border-radius: 50px; /* Botones redondeados */
+	border-radius: 50px;
 	padding: 0.8rem 1.5rem;
 	font-size: 1rem;
 	cursor: pointer;
 	transition: background-color 0.3s, transform 0.2s;
-	margin: 1rem 0; /* Espaciado entre botones */
-	width: 80%; /* Botones adaptables */
-	max-width: 300px; /* Límite de ancho */
+	margin: 1rem 0;
+	width: 80%;
+	max-width: 300px;
 	text-align: center;
 	font-weight: bold;
 }
 
-/* Hover and Active States */
 #confirmationBtn:hover,
 #changeAnimal:hover,
 #sendForm {
-	background-color: #ff5e00; /* Cambio de color al pasar el ratón */
-	transform: scale(1.05); /* Ligero aumento */
+	background-color: #ff5e00;
+	transform: scale(1.05);
 	color: #ffeec9;
 }
 
-/* Container for Buttons and Content */
 .container {
 	display: flex;
 	flex-direction: column;
-	align-items: center; /* Centra horizontalmente */
-	justify-content: center; /* Centra verticalmente */
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	max-width: 600px;
-	background-color: #ffeec9; /* Fondo suave */
+	background-color: #ffeec9;
 	border-radius: 15px;
 	padding: 2rem;
-	box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra elegante */
 	margin: 1rem;
 }
 
 body.userData {
-	background-color: #fffbe6; /* Fondo claro */
+	background-color: #fffbe6;
 	margin: 0;
 	font-family: 'Arial', sans-serif;
 	display: flex;
 	flex-direction: column;
-	align-items: center; /* Centra horizontalmente */
-	justify-content: center; /* Centra verticalmente */
-	min-height: 100vh; /* Abarca toda la altura de la ventana */
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
 	padding: 1rem;
 	box-sizing: border-box;
-	color: #301803; /* Texto en un marrón cálido */
+	color: #301803;
 	text-align: center;
 }
 
 input[type='text'] {
-	background-color: #ffc680; /* Color de fondo */
-	color: #fffbe6; /* Color del texto */
-	border: none; /* Sin borde */
-	border-radius: 50px; /* Esquinas redondeadas */
-	padding: 0.8rem 1.5rem; /* Espaciado interno */
-	font-size: 1rem; /* Tamaño de la fuente */
-	font-family: 'Arial', sans-serif; /* Fuente */
-	width: 100%; /* Ocupa el ancho completo del contenedor */
-	max-width: 400px; /* Máximo ancho */
-	outline: none; /* Sin contorno al enfocar */
-	margin-bottom: 1rem; /* Espaciado entre los inputs */
+	background-color: #ffc680;
+	color: #fffbe6;
+	border: none;
+	border-radius: 50px;
+	padding: 0.8rem 1.5rem;
+	font-size: 1rem;
+	font-family: 'Arial', sans-serif;
+	width: 100%;
+	max-width: 400px;
+	outline: none;
+	margin-bottom: 1rem;
 }
 
 input[type='text']::placeholder {
-	color: #fffbe6; /* Color del texto de marcador */
-	opacity: 0.9; /* Transparencia */
+	color: #fffbe6;
+	opacity: 0.9;
 }
 
-/* Efecto al enfocar */
 input[type='text']:focus {
-	background-color: #ffb870; /* Ligero cambio en el color de fondo */
+	background-color: #ffb870;
 }
