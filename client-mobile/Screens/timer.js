@@ -3,10 +3,12 @@ import { router, socket } from '../routes.js';
 export default function renderTimer() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-        <h1>Timer</h1>
-				<p id="timer" style="display: none;">Time: 0 seconds</p>
-
-    `;
+	<div id="app">
+		<img id="topImagen" src="./resources/topImage.png" alt="Imagen header">
+		<h1 id="titulo">Timer</h1>
+		<p id="timer" style="display: none;">Time: 0 seconds</p>
+		<img id="bottomImage" src="./resources/bottomImage.png" alt="Imagen footer">
+		</div>`;
 
 	const timerElement = document.getElementById('timer');
 

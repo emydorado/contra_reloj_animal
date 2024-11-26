@@ -131,7 +131,8 @@ body.confirmSelection {
 #confirmationBtn,
 #changeAnimal,
 #sendForm,
-#gameStarted {
+#gameStarted,
+#prize {
 	background-color: #ff7500;
 	color: #ffeec9;
 	border: none;
@@ -150,7 +151,8 @@ body.confirmSelection {
 #confirmationBtn:hover,
 #changeAnimal:hover,
 #sendForm:hover,
-#gameStarted:hover {
+#gameStarted:hover,
+#prize:hover {
 	background-color: #ff5e00;
 	transform: scale(1.05);
 	color: #ffeec9;
@@ -210,11 +212,10 @@ input[type='text']:focus {
 body {
 	margin: 0;
 	font-family: Arial, sans-serif;
-	background-color: #fff8e7; /* Fondo similar al de la imagen */
+	background-color: #fff8e7;
 	text-align: center;
 }
 
-/* Contenedor principal */
 #app {
 	display: flex;
 	flex-direction: column;
@@ -223,15 +224,13 @@ body {
 	height: 100vh;
 }
 
-/* Imagen superior */
 #topImagen {
 	width: 100%;
 	height: auto;
 	object-fit: cover;
-	margin-bottom: 20px; /* Espacio entre la imagen y el botón */
+	margin-bottom: 20px;
 }
 
-/* Botón principal */
 #StartGame {
 	background-color: #00712d;
 	color: #fff8e7;
@@ -248,10 +247,43 @@ body {
 	transform: scale(1.1);
 }
 
-/* Imagen inferior */
 #bottomImage {
 	width: 100%;
 	height: auto;
 	object-fit: cover;
-	margin-top: auto; /* Empuja la imagen al fondo */
+	margin-top: auto;
+}
+
+body.timer {
+	background-color: #fffbe6;
+	margin: 0;
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 1rem;
+	box-sizing: border-box;
+	color: #301803;
+	text-align: center;
+}
+
+#titulo {
+	color: #ff5e00;
+}
+
+body.end {
+	background-color: #fffbe6;
+	margin: 0;
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	padding: 1rem;
+	box-sizing: border-box;
+	color: #301803;
+	text-align: center;
 }
