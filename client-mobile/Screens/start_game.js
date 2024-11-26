@@ -5,7 +5,7 @@ export default function renderStartGame() {
 	app.innerHTML = `
 		<div id="app">
 		<img id="topImagen" src="./resources/topImage.png" alt="Imagen header">
-		<button id="StartGame">Continuar</button>
+		<button id="StartGame">Iniciar juego</button>
 		<div id="gameStatus" style="display: none;">
 		<button id="gameStarted">Game started</button>
 		<p>Time will start when you cross the line</p>

@@ -8,6 +8,7 @@ export default function renderUserData() {
 			<input type="text" placeholder="Name" id="name"/>
 			<input type="text" placeholder="Last Name" id="lastname"/>
 			<input type="text" placeholder="Email" id="email"/>
+			<p><b>¡IMPORTANTE!</b> Lee las instrucciones en la pantalla antes de enviar tus datos</p>
 			<button id="sendForm">Send form</button>
 `;
 

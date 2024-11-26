@@ -301,3 +301,123 @@ body.animal-data #tucanImage {
 	border-radius: 10px;
 	margin-bottom: 1rem;
 }
+/* animal data */
+
+/* instructions */
+body.instructions {
+	background-color: #fffbe6;
+	margin: 0;
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 100vh;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#instructionsBottom {
+	width: 100%;
+	height: auto;
+	display: flex;
+	position: absolute;
+	z-index: 0;
+	top: 38vh;
+}
+
+#instructionsTop {
+	width: 75vh;
+	height: auto;
+	display: flex;
+}
+
+body.instructions h1 {
+	font-family: 'Lilita One', cursive;
+	font-weight: 400;
+	font-style: normal;
+	color: #ff7500;
+	font-size: 60px;
+}
+
+body.instructions p {
+	color: #301803;
+	font-size: 20px;
+	margin: 0;
+}
+
+body.instructions h3 {
+	color: #ff7500;
+	font-size: 30px;
+	display: flex;
+	justify-content: center;
+}
+
+#instructions {
+	margin-left: 10vh;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	position: absolute;
+	z-index: 1;
+}
+
+/* start Game */
+body.startGame {
+	background-color: #fffbe6;
+	margin: 0;
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 100vh;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#topImages {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: flex-start;
+	gap: 21vh;
+}
+
+#titleColibri {
+	margin-left: 12vh;
+	position: absolute;
+	top: 18vh;
+}
+
+#leon {
+	width: 100%;
+	height: auto;
+}
+
+body.startGame #info {
+	display: flex;
+	flex-direction: column;
+	color: #301803;
+	margin-top: 12vh;
+	align-items: center;
+}
+
+body.startGame #info p {
+	margin: 40px;
+	display: flex;
+	justify-content: center;
+	width: auto;
+	font-size: 25px;
+}
+
+body.startGame #info h1 {
+	font-size: 55px;
+	display: flex;
+	justify-content: center;
+	margin: 0;
+}
+
+body.startGame #info h1 b {
+	color: #ff7500;
+}
