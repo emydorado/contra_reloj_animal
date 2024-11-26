@@ -1,3 +1,4 @@
+/* Ad screen */
 body.ad-screen {
 	background-color: #fffbe6;
 	font-family: Arial, sans-serif;
@@ -116,4 +117,109 @@ body.ad-screen {
 	top: 70%;
 	left: 50px;
 	width: 250px;
+}
+/* Ad screen */
+
+/* select animal */
+body.selectAnimal {
+	background-color: #fffbe6;
+	margin: 0;
+	font-family: 'Arial', sans-serif;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: 100vh;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#leonImage,
+#canguroImage,
+#micoImage,
+#tortugaImage,
+#patoImage,
+#flamencoImage,
+#antilopeImage,
+#colibriImage,
+#tucanImage {
+	width: 75px;
+	height: auto;
+	border-radius: 10px;
+	margin-bottom: 1rem;
+}
+
+#topImage {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+#bottomImage {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
+	z-index: -1;
+	object-fit: cover;
+}
+
+#instructions {
+	color: #301803;
+	font-size: 25px;
+	line-height: 1.4;
+	text-align: center;
+	margin: 2rem;
+	width: 90%;
+	margin-left: 3vh;
+}
+
+#buttons {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 2rem;
+	justify-content: center;
+	width: 100%;
+	max-width: 400px;
+	padding: 1rem;
+	box-sizing: border-box;
+	margin-left: 22vh;
+}
+
+#buttons button {
+	background-color: #ffeec9;
+	color: #ff7500;
+	font-weight: bold;
+	border: none;
+	border-radius: 15px;
+	padding: 0.8rem 3rem;
+	font-size: 1.6rem;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.2s;
+	text-align: center;
+}
+
+#buttons button:hover {
+	background-color: #ffddb3;
+	transform: scale(1.05);
+}
+
+#selectAnimal {
+	display: block;
+	margin: 1rem auto 0 auto;
+	background-color: #ff7500;
+	color: #fffbe6;
+	border: none;
+	border-radius: 50px;
+	padding: 1rem 2.5rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+	cursor: pointer;
+	transition: background-color 0.3s, transform 0.2s;
+}
+
+#selectAnimal:hover {
+	background-color: #ff5e00;
+	transform: scale(1.1);
 }
