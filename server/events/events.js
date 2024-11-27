@@ -33,9 +33,9 @@ const events = (socket, io) => {
 
 	socket.on('startGame', startGame(db, socket, io));
 
-	socket.on('userCrossedSecondLine', userCrossedSecondLine(db, socket, io));
+	// socket.on('userCrossedSecondLine', userCrossedSecondLine(db, socket, io));
 
-	socket.on('userCrossedFirstLine', userCrossedFirstLine(db, socket, io));
+	// socket.on('userCrossedFirstLine', userCrossedFirstLine(db, socket, io));
 
 	socket.on('sendWinnerPrize', sendWinnerPrize(db, socket, io));
 

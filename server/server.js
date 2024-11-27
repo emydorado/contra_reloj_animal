@@ -16,4 +16,6 @@ const httpServer = createServer(app); // Explicity creates an HTTP server from t
 // Initialize Socket.IO
 initSocket(httpServer);
 
+require('./serial.js');
+
 httpServer.listen(process.env.PORT, () => console.log(`server starting 🚀🆙✔ on http://localhost:${process.env.PORT}`));

@@ -2,6 +2,7 @@ const users = require('../db/entities/users');
 const { assignroles } = require('../utils/helpers');
 const supabase = require('../services/supabase'); // Asegúrate de que la importación de supabase sea correcta si es necesario
 const { sendWinnerEmailWithTemplate, sendLoserEmailWithTemplate } = require('../services/brevo');
+const { getIO } = require('../socket');
 
 const userConnected = (socket, db, io) => {
 	return async (data) => {
@@ -64,72 +65,71 @@ const userRegistered = (socket, db, io) => {
 let startTime = null;
 let timerInterval = null;
 
-const userCrossedFirstLine = (socket, db, io) => {
-	return (data) => {
-		if (timerInterval) clearInterval(timerInterval); // Reiniciar si ya había un temporizador
-		startTime = Date.now();
+const userCrossedFirstLine = (io) => {
+	console.log('cruzó 1 ');
 
-		timerInterval = setInterval(() => {
-			const timeElapsed = Math.floor((Date.now() - startTime) / 1000);
-			io.emit('timerUpdate', timeElapsed);
-		}, 1000);
-		io.emit('userCrossedFirstLine', userCrossedFirstLine);
-	};
+	if (timerInterval) clearInterval(timerInterval); // Reiniciar si ya había un temporizador
+	startTime = Date.now();
+
+	timerInterval = setInterval(() => {
+		const timeElapsed = Math.floor((Date.now() - startTime) / 1000);
+		io.emit('timerUpdate', timeElapsed);
+	}, 1000);
+	io.emit('userCrossedFirstLine');
 };
 
-const userCrossedSecondLine = (socket, db, io) => {
-	return async (data) => {
-		if (!startTime) {
-			console.error('Timer was not started.');
+const userCrossedSecondLine = async (io) => {
+	console.log('cruzó 2 ', startTime);
+	if (!startTime) {
+		console.error('Timer was not started.');
+		return;
+	}
+
+	clearInterval(timerInterval);
+	const endTime = Date.now();
+	const timeElapsed = Math.floor((endTime - startTime) / 1000);
+
+	console.log('Time elapsed:', timeElapsed, 'seconds');
+
+	try {
+		const { data: registrationData, error: registrationError } = await supabase
+			.from('Registrations')
+			.select('animalId')
+			.order('created_at', { ascending: false })
+			.limit(1);
+
+		console.log('registrationData', registrationData);
+
+		if (registrationError || !registrationData || registrationData.length === 0) {
+			console.error('Error fetching the last registration:', registrationError || 'No registration found.');
 			return;
 		}
 
-		clearInterval(timerInterval);
-		const endTime = Date.now();
-		const timeElapsed = Math.floor((endTime - startTime) / 1000);
+		const animalId = registrationData[0].animalId; // Extraer el valor de selectedanimal
+		console.log('Animal ID:', animalId);
 
-		console.log('Time elapsed:', timeElapsed, 'seconds');
+		// Consultar el tiempo del animal desde la base de datos
+		const { data: animalData, error } = await supabase.from('Animals').select('segundos').eq('id', animalId);
 
-		try {
-			const { data: registrationData, error: registrationError } = await supabase
-				.from('Registrations')
-				.select('animalId')
-				.order('created_at', { ascending: false })
-				.limit(1);
-
-			console.log('registrationData', registrationData);
-
-			if (registrationError || !registrationData || registrationData.length === 0) {
-				console.error('Error fetching the last registration:', registrationError || 'No registration found.');
-				return;
-			}
-
-			const animalId = registrationData[0].animalId; // Extraer el valor de selectedanimal
-			console.log('Animal ID:', animalId);
-
-			// Consultar el tiempo del animal desde la base de datos
-			const { data: animalData, error } = await supabase.from('Animals').select('segundos').eq('id', animalId);
-
-			if (error || !animalData || animalData.length === 0) {
-				console.error('Error fetching animal data:', error || 'Animal not found');
-				return;
-			}
-
-			const animalTime = animalData[0].segundos; // Tiempo del animal en segundos
-			console.log(`Animal time: ${animalTime} seconds`);
-
-			// Comparar los tiempos y emitir el evento correspondiente
-			if (timeElapsed < animalTime) {
-				io.emit('userWins', { userTime: timeElapsed, animalTime: animalTime });
-			} else {
-				io.emit('animalWins', { userTime: timeElapsed, animalTime: animalTime });
-			}
-		} catch (err) {
-			console.error('Error while fetching animal time:', err.message);
-		} finally {
-			startTime = null; // Reiniciar el tiempo de inicio para la próxima carrera
+		if (error || !animalData || animalData.length === 0) {
+			console.error('Error fetching animal data:', error || 'Animal not found');
+			return;
 		}
-	};
+
+		const animalTime = animalData[0].segundos; // Tiempo del animal en segundos
+		console.log(`Animal time: ${animalTime} seconds`);
+
+		// Comparar los tiempos y emitir el evento correspondiente
+		if (timeElapsed < animalTime) {
+			io.emit('userWins', { userTime: timeElapsed, animalTime: animalTime });
+		} else {
+			io.emit('animalWins', { userTime: timeElapsed, animalTime: animalTime });
+		}
+	} catch (err) {
+		console.error('Error while fetching animal time:', err.message);
+	} finally {
+		startTime = null; // Reiniciar el tiempo de inicio para la próxima carrera
+	}
 };
 
 const userTime = (socket, db, io) => {
