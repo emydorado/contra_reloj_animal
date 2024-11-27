@@ -5,8 +5,8 @@ export default function renderTimer() {
 	app.innerHTML = `
 	<div id="app">
 		<img id="topImagen" src="./resources/topImage.png" alt="Imagen header">
-		<h1 id="titulo">Timer</h1>
-		<p id="timer" style="display: none;">Time: 0 seconds</p>
+		<h1 id="titulo">¡Buena suerte!</h1>
+		<p id="timer" style="display: none;">0 seconds</p>
 		<img id="bottomImage" src="./resources/bottomImage.png" alt="Imagen footer">
 		</div>`;
 
@@ -17,7 +17,7 @@ export default function renderTimer() {
 		const timerElement = document.getElementById('timer');
 		if (timerElement) {
 			timerElement.style.display = 'block';
-			timerElement.innerText = `Time: ${timeElapsed} seconds`;
+			timerElement.innerText = `${timeElapsed} seconds`;
 		}
 	});
 

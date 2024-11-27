@@ -3,13 +3,21 @@ import { router, socket } from '../routes.js';
 export default function renderUserData() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-			<h1 id="title">Ingresa tus datos</h1>
-			<p id="Nombre">Insert your data so we can send your prize</p>
-			<input type="text" placeholder="Name" id="name"/>
-			<input type="text" placeholder="Last Name" id="lastname"/>
-			<input type="text" placeholder="Email" id="email"/>
-			<p><b>¡IMPORTANTE!</b> Lee las instrucciones en la pantalla antes de enviar tus datos</p>
-			<button id="sendForm">Send form</button>
+			<img id="topImage" src="./resources/confirmTopImg.png" alt="Imagen top">
+
+
+			<p id="registrate">Registrate</p>
+			<p id="Nombre"> Para así enviar tu bono de descuento</p>
+
+			<div id="dataContent">
+			<input type="text" placeholder="Nombre" id="name"/>
+			<input type="text" placeholder="Apellido" id="lastname"/>
+			<input type="text" placeholder="Correo Electronico" id="email"/>
+			<button id="sendForm">JUGAR</button>
+			</div>
+
+			<img id="bottomImage" src="./resources/zoologicoDeCali.png" alt="Imagen footer">
+
 `;
 
 	document.getElementById('sendForm').addEventListener('click', () => {

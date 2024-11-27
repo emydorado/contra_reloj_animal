@@ -5,10 +5,10 @@ export default function renderStartGame() {
 	app.innerHTML = `
 		<div id="app">
 		<img id="topImagen" src="./resources/topImage.png" alt="Imagen header">
-		<button id="StartGame">Iniciar juego</button>
+		<button id="StartGame">INICIAR JUEGO</button>
 		<div id="gameStatus" style="display: none;">
-		<button id="gameStarted">Game started</button>
-		<p>Time will start when you cross the line</p>
+		<button id="gameStarted">JUEGO INICIADO</button>
+		<p id="Nombre"><b>¡El tiempo iniciará una vez cruces la línea!</b></p>
 		</div>
 		<img id="bottomImage" src="./resources/bottomImage.png" alt="Imagen footer">
 		</div>
