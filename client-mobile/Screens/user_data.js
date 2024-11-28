@@ -10,9 +10,9 @@ export default function renderUserData() {
 			<p id="Nombre"> Para así enviar tu bono de descuento</p>
 
 			<div id="dataContent">
-			<input type="text" placeholder="Nombre" id="name"/>
-			<input type="text" placeholder="Apellido" id="lastname"/>
-			<input type="text" placeholder="Correo Electronico" id="email"/>
+			<input type="text" placeholder="Nombre" id="name" required/>
+			<input type="text" placeholder="Apellido" id="lastname" required/>
+			<input type="text" placeholder="Correo Electronico" id="email" required/>
 			<button id="sendForm">JUGAR</button>
 			</div>
 
@@ -24,6 +24,11 @@ export default function renderUserData() {
 		const Name = document.getElementById('name').value;
 		const Lastname = document.getElementById('lastname').value;
 		const email = document.getElementById('email').value;
+
+		if (!Name || !Lastname || !email) {
+			alert('Por favor, completa todos los campos obligatorios.');
+			return; // Detiene la ejecución si algún campo está vacío
+		}
 
 		const selectedanimal = JSON.parse(localStorage.getItem('animalSelected')); // Deserializar JSON
 		const animalId = selectedanimal.id; // Extraer solo el ID

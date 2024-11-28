@@ -3,20 +3,41 @@ import { router, socket } from '../routes.js';
 export default function renderLoser() {
 	const app = document.getElementById('app');
 	app.innerHTML = `
-		<img id="topImagen" src="./resources/topImage.png" alt="Imagen header">
-		<h1 id="titulo">Animal Wins!</h1>
-		<p id="times">Waiting for times...</p>
-		<button id="prize">Claim prize</button>
-		<img id="bottomImage" src="./resources/bottomImage.png" alt="Imagen footer">
+					<img id="topWinner" src="./resources/topWinner.png" alt="Imagen top">
+
+				<div id="timeContent">
+        <h1 id="perdedor">¡Ha ganado el animal!</h1>
+
+        <div id="result-container">
+
+				<p><b>El tiempo del animal fue de</b></p>
+            <p class="result" id="animal-time"><span>Waiting...</span></p>
+
+				<p id="textTime"><b>Tu tiempo fue de</b></p>
+            <p class="result" id="user-time"><span>Waiting...</span></p>
+        </div>
+				</div>
+
+				<img id="pajaroTucan" src="./resources/middleImgWinner.png" alt="Imagen middle">
+
+		<button id="prize">RECLAMAR PREMIO</button>
+
+				<div class="bottom">
+				<h3>¡Te esperamos!</h3>
+
+				<img id="logoZoo" src="./resources/logo-zoo.png" alt="logo">
+				</div>
 		`;
 
 	const userTime = localStorage.getItem('userTime');
 	const animalTime = localStorage.getItem('animalTime');
 
 	if (userTime && animalTime) {
-		document.getElementById('times').innerText = `User Time: ${userTime} seconds, Animal Time: ${animalTime} seconds`;
+		document.getElementById('animal-time').querySelector('span').innerText = `${animalTime} segundos`;
+		document.getElementById('user-time').querySelector('span').innerText = `¡${userTime} segundos!`;
 	} else {
-		document.getElementById('times').innerText = 'Times not available.';
+		document.getElementById('animal-time').querySelector('span').innerText = 'No disponible.';
+		document.getElementById('user-time').querySelector('span').innerText = 'No disponible.';
 	}
 
 	document.getElementById('prize').addEventListener('click', () => {
