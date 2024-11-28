@@ -6,7 +6,7 @@ export default function renderWinner() {
 					<img id="topWinner" src="./resources/topWinner.png" alt="Imagen top">
 
 				<div id="timeContent">
-        <h1 id="ganador">¡Ha ganado el animal!</h1>
+        <h1 id="ganador">¡GANASTE!</h1>
 
         <div id="result-container">
 
