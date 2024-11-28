@@ -20,7 +20,7 @@ export default function renderAdScreen() {
 				<div id="discount">
         <img src="./resources/discount.png" class="discount">
 				</div>
-        <img src="./resources/qr.png" class="qr">
+        <img src="./resources/frame.png" class="qr">
 				</div>
 
 				<div id="hojasLado">
