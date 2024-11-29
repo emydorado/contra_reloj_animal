@@ -1,4 +1,4 @@
-const socket = io('https://bbf7-190-1-218-62.ngrok-free.app', { path: '/real-time' }); // Update this to your server URL
+const socket = io('http://localhost:5050', { path: '/real-time' }); // Update this to your server URL
 
 socket.on('connect', () => {
 	console.log('Connected to Socket.IO server');
